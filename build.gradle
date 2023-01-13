@@ -1,5 +1,6 @@
 plugins {
-	id 'fabric-loom' version "1.0-SNAPSHOT" // To use chocoloom, change the version to a commit hash
+	id 'fabric-loom' version "1.0-SNAPSHOT"
+	id 'legacy-looming' version "1.0-SNAPSHOT" // Version must be the same as fabric-loom's
 	id 'maven-publish'
 }
 
@@ -11,10 +12,6 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	maven {
-		name = "legacy-fabric"
-		url = "https://repo.legacyfabric.net/repository/legacyfabric/"
-	}
 	// Fixed LWJGL on Linux
 	maven {
 		name = 'Babric'
@@ -46,9 +43,12 @@ dependencies {
 
 	// Fabric API provides hooks for events, item registration, and more. As most mods will need this, it's included by default. 
 	// If you know for a fact you don't, it's not required and can be safely removed.
-	modImplementation ("net.legacyfabric.legacy-fabric-api:legacy-fabric-api:${fabric_version}") {
+	modImplementation ("net.legacyfabric.legacy-fabric-api:legacy-fabric-api:${project.fabric_version}") {
  		exclude module: "legacy-fabric-entity-events-v1"
  	}
+
+	// You can retrieve a specific api module using this notation.
+	//	modImplementation(legacyFabricApi.module("legacy-fabric-item-groups-v1", project.fabric_version))
 
 	if (lwjgl2) {
 		if (currentOs.contains("mac")) {
