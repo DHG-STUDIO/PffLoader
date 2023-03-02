@@ -1,6 +1,6 @@
 plugins {
-	id 'fabric-loom' version "1.0-SNAPSHOT"
-	id 'legacy-looming' version "1.0-SNAPSHOT" // Version must be the same as fabric-loom's
+	id 'fabric-loom' version "1.1-SNAPSHOT"
+	id 'legacy-looming' version "1.1-SNAPSHOT" // Version must be the same as fabric-loom's
 	id 'maven-publish'
 }
 
