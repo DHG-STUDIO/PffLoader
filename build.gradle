@@ -20,8 +20,6 @@ repositories {
 }
 
 loom {
-	//setIntermediaryUrl('https://repo.legacyfabric.net/repository/legacyfabric/net/legacyfabric/intermediary/%1$s/intermediary-%1$s-v2.jar');
-	
 	// Only needed for versions not available from vanilla launcher by default.
 	// customMinecraftManifest.set("https://meta.legacyfabric.net/v2/manifest/${minecraft_version}")
 
