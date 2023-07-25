@@ -41,7 +41,7 @@ First of you must replace all occurrences of `modid` with the id of your mod.
 
 If your mod doesn't use mixins you can safely remove the mixin entry in your `fabric.mod.json` as well as delete any `*.mixin.json` files.
 
-This template has the legacy fabric api included in it's build script, more info about the api can be found at it's [github repo](https://github.com/Legacy-Fabric/fabric). \
+This template has the legacy fabric api included in it's build script, more info about the api can be found at it's [github repo](https://github.com/Legacy-Fabric/fabric).
 If you know what you are doing you can also safely remove the api from the build script as it isn't required.
 
 ### Useful gradle commands
@@ -76,7 +76,8 @@ If you are new to fabric or Minecraft modding in general then [this wiki page](h
 
 The [minotaur](https://github.com/modrinth/minotaur) gradle plugin is a tool gradle plugin for deploying build artifacts to Modrinth.
 
-**Usage example:**
+<details>
+    <summary>Usage example</summary>
 
 `build.gradle`
 ```groovy
@@ -107,13 +108,16 @@ To publish to Modrinth run:
 ./gradlew build modrinth
 ```
 
+</details>
+
 ### Improved source decompilation
 
 By default the `genSources` task uses the fabric [cfr](https://github.com/FabricMC/cfr) decompiler to generate Minecraft sources.
 Vineflower is a fork of the FernFlower decompiler which contains many enhancements and bug fixes, and generally produces much better source code. \
 With the [loom-vineflower](https://github.com/Juuxel/loom-vineflower) plugin it is possible to integrate it directly into your project.
 
-**Usage example:**
+<details>
+    <summary>Usage example</summary>
 
 `build.gradle`
 ```diff
@@ -127,11 +131,17 @@ Instead of `genSources`, you can now run:
 ./gradlew genSourcesWithVineflower
 ```
 
+</details>
+
 ### Adding mod dependencies
 
 In oder to implement the api of a mod, for example to add your mod settings to [Mod Menu](https://modrinth.com/mod/legacy-mod-menu), it is required that you add that mod to your build script as a dependency with `modImplementation`. To simplify this setup Modrinth allows you to load mods directly from there maven.
 
-**Usage example:**
+More info about this can be found in the [Modrinth docs](https://docs.modrinth.com/docs/tutorials/maven/). \
+For more info about loom dependencies see the [fabric wiki](https://fabricmc.net/wiki/documentation:fabric_loom?s[]=dependencies#options).
+
+<details>
+    <summary>Usage example</summary>
 
 `build.gradle`
 ```groovy
@@ -154,8 +164,7 @@ dependencies {
 }
 ```
 
-More info about this can be found in the [Modrinth docs](https://docs.modrinth.com/docs/tutorials/maven/). \
-For more info about loom dependencies see the [fabric wiki](https://fabricmc.net/wiki/documentation:fabric_loom?s[]=dependencies#options).
+</details>
 
 
 ## License
