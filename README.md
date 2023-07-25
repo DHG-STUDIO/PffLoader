@@ -7,8 +7,8 @@
   - [More info](#more-info)
 - [Useful gradle plugins](#useful-gradle-plugins)
   - [Automated Modrinth publication](#automated-modrinth-publication)
-  - [Improved source decompilation](#improved-source-decompilation)
   - [Adding mod dependencies](#adding-mod-dependencies)
+  - [Improved source decompilation](#improved-source-decompilation)
 - [License](#license)
 
 
@@ -74,13 +74,16 @@ If you are new to fabric or Minecraft modding in general then [this wiki page](h
 
 ### Automated Modrinth publication
 
-The [minotaur](https://github.com/modrinth/minotaur) gradle plugin is a tool gradle plugin for deploying build artifacts to Modrinth.
+The [minotaur](https://github.com/modrinth/minotaur) gradle plugin is a tool for deploying build artifacts to Modrinth.
+
+For more info see https://github.com/modrinth/minotaur#readme
 
 <details>
     <summary>Usage example</summary>
 
-`build.gradle`
 ```groovy
+// build.gradle
+
 plugins {
     id "com.modrinth.minotaur" version "2.+"
 }
@@ -110,32 +113,9 @@ To publish to Modrinth run:
 
 </details>
 
-### Improved source decompilation
-
-By default the `genSources` task uses the fabric [cfr](https://github.com/FabricMC/cfr) decompiler to generate Minecraft sources.
-Vineflower is a fork of the FernFlower decompiler which contains many enhancements and bug fixes, and generally produces much better source code. \
-With the [loom-vineflower](https://github.com/Juuxel/loom-vineflower) plugin it is possible to integrate it directly into your project.
-
-<details>
-    <summary>Usage example</summary>
-
-`build.gradle`
-```diff
-plugins {
-+   id 'io.github.juuxel.loom-vineflower' version "1.11.0"
-}
-```
-
-Instead of `genSources`, you can now run:
-```sh
-./gradlew genSourcesWithVineflower
-```
-
-</details>
-
 ### Adding mod dependencies
 
-In oder to implement the api of a mod, for example to add your mod settings to [Mod Menu](https://modrinth.com/mod/legacy-mod-menu), it is required that you add that mod to your build script as a dependency with `modImplementation`. To simplify this setup Modrinth allows you to load mods directly from there maven.
+In order to implement the api of a mod, for example to add your mod settings to [Mod Menu](https://modrinth.com/mod/legacy-mod-menu), it is required that you add that mod to your build script as a dependency with `modImplementation`. To simplify this setup Modrinth allows you to load mods directly from there maven.
 
 More info about this can be found in the [Modrinth docs](https://docs.modrinth.com/docs/tutorials/maven/). \
 For more info about loom dependencies see the [fabric wiki](https://fabricmc.net/wiki/documentation:fabric_loom?s[]=dependencies#options).
@@ -143,8 +123,9 @@ For more info about loom dependencies see the [fabric wiki](https://fabricmc.net
 <details>
     <summary>Usage example</summary>
 
-`build.gradle`
 ```groovy
+// build.gradle
+
 repositories {
     exclusiveContent {
         forRepository {
@@ -162,6 +143,32 @@ repositories {
 dependencies {
     modImplementation "maven.modrinth:legacy-mod-menu:1.1.0"
 }
+```
+
+</details>
+
+### Improved source decompilation
+
+By default the `genSources` task uses the fabric [cfr](https://github.com/FabricMC/cfr) decompiler to generate Minecraft sources.
+Vineflower is a decompiler which contains many enhancements and generally produces much better source code. \
+With the [loom-vineflower](https://github.com/Juuxel/loom-vineflower) plugin it is possible to integrate it directly into your project.
+
+For more info see https://github.com/Juuxel/loom-vineflower#readme
+
+<details>
+    <summary>Usage example</summary>
+
+```groovy
+// build.gradle
+
+plugins {
+    id 'io.github.juuxel.loom-vineflower' version "1.11.0"
+}
+```
+
+Instead of `genSources`, you can now run:
+```sh
+./gradlew genSourcesWithVineflower
 ```
 
 </details>
