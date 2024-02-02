@@ -28,5 +28,5 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.0
         with: 
-          name: LegacyFixes
+          name: modid
           path: build/libs/*.jar
