@@ -3,35 +3,49 @@ package com.ptk671.pffloader;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class Add {
 
-
-    public static Item item(RegistryKey<ItemGroup> itemGroup)
+    public static RegistryKey<ItemGroup> PFF_CREATIVE_TAB;
+    public static void SettingPPFItemGroup (String MOD_ID,String TAB_ID, Item pffItem)
     {
-        Item item = new Item(new FabricItemSettings());
-        ItemGroupEvents.modifyEntriesEvent(itemGroup).register(content -> {
-            content.add(item);
-        });
-        return item;
+         PFF_CREATIVE_TAB = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MOD_ID,TAB_ID));
+        Registry.register(Registries.ITEM_GROUP, new Identifier(MOD_ID, TAB_ID), FabricItemGroup.builder()
+                .displayName(Text.of(MOD_ID+"."+TAB_ID))
+                .icon(() -> new ItemStack(pffItem)).build());
+
     }
 
-    public static RegistryKey<ItemGroup> itemGroup(String MOD_ID, String TabId, Item item)
+
+    public static void AddPffItem(String MOD_ID,String ITEM_ID,int maxCount) {
+        PffItem pffItem = Registry.register(Registries.ITEM, new Identifier(MOD_ID, ITEM_ID), new PffItem(new FabricItemSettings()
+                .maxCount(maxCount)
+
+        ));
+
+        ItemGroupEvents.modifyEntriesEvent( PFF_CREATIVE_TAB).register(content -> {
+            content.add(pffItem);
+    });
+    }
+
+    public static PffItem AddPffHideItem(String MOD_ID, String ITEM_ID, int maxCount)
     {
 
-        RegistryKey<ItemGroup> fabricItemGroupBuilder = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MOD_ID,TabId));
-
-        return fabricItemGroupBuilder;
+        PffItem pffItem =  Registry.register(Registries.ITEM, new Identifier(MOD_ID,ITEM_ID),
 
 
+                new PffItem (new FabricItemSettings()
+                        .maxCount(maxCount)
+                ));
 
+        return pffItem;
     }
 
 }

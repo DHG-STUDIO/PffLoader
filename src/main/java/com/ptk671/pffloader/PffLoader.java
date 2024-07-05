@@ -1,25 +1,34 @@
 package com.ptk671.pffloader;
 
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.util.Identifier;
+
+import java.util.concurrent.Callable;
+
+import static com.ptk671.pffloader.Add.*;
 
 public class PffLoader implements ModInitializer {
     public static String MOD_ID = "pffloader";
-    public static /* ItemGroup Classを使いたかった */RegistryKey<ItemGroup> TEST_TAB = Add.itemGroup(MOD_ID,"all", Items.STONE);
-    public static Item TEST_ITEM = Add.item(PffLoader.TEST_TAB);
 
-    public static Identifier id(String patch)
-    {
-        return new Identifier(MOD_ID,patch);
-    }
+    Callable<PffItem> addPffHideItemCaller = () -> {
+        String MOD_ID = "pffloader";
+        String ITEM_ID = "my_pff_item";
+        int maxCount = 64; // 任意の値
+
+        PffItem pffItem = AddPffHideItem(MOD_ID, ITEM_ID, maxCount);
+
+
+        return pffItem;
+    };
 
     @Override
+    //テストコード
     public void onInitialize() {
 
-        SimpleRegistry.ItemRegistry(MOD_ID,"test",TEST_ITEM);
+        try {
+            SettingPPFItemGroup(MOD_ID,"test",  addPffHideItemCaller.call());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        AddPffItem(MOD_ID,"test",64);
     }
 }
