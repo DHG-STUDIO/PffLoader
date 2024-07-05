@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -12,11 +13,13 @@ import net.minecraft.util.registry.Registry;
 public class Add {
 
     public static ItemGroup PFF_CREATIVE_TAB;
-    public static void AddPffItemGroup (String TAB_ID, Item pffItem)
+    public static void SettingPPFItemGroup  (String MOD_ID,String TAB_ID, Item pffItem,String DisplayName)
     {
       PFF_CREATIVE_TAB =  FabricItemGroupBuilder.build(
                 new Identifier(TAB_ID),
-                () -> new ItemStack(pffItem));
+                () -> new ItemStack(pffItem)
+                        .setCustomName(Text.of(DisplayName))
+      );
     }
 
 

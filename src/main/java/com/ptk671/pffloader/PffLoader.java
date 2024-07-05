@@ -20,15 +20,12 @@ public class PffLoader implements ModInitializer {
         return pffItem;
     };
 
-
-
     @Override
-
     //テストコード
     public void onInitialize() {
 
         try {
-            AddPffItemGroup("test",  addPffHideItemCaller.call());
+            SettingPPFItemGroup(MOD_ID,"test", addPffHideItemCaller.call(),"testt");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
