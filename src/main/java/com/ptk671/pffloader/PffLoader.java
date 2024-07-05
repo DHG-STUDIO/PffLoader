@@ -25,7 +25,7 @@ public class PffLoader implements ModInitializer {
     public void onInitialize() {
 
         try {
-            SettingPPFItemGroup(MOD_ID,"test",  addPffHideItemCaller.call());
+            SettingPPFItemGroup(MOD_ID,"test", addPffHideItemCaller.call(),"testt");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
