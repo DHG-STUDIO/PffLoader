@@ -23,20 +23,19 @@ public class Add {
     }
 
 
-    public static void AddPffItem(String MOD_ID,String ITEM_ID,int maxCount)
+    public static PffItem AddPffItem(String MOD_ID, String ITEM_ID, int maxCount)
     {
-        Registry.register(Registry.ITEM, new Identifier( MOD_ID,ITEM_ID),new PffItem (new FabricItemSettings()
+        PffItem pffItem = Registry.register(Registry.ITEM, new Identifier( MOD_ID,ITEM_ID),new PffItem (new FabricItemSettings()
                 .maxCount(maxCount)
                 .group(PFF_CREATIVE_TAB)
         ));
+        return pffItem;
     }
 
     public static PffItem AddPffHideItem(String MOD_ID, String ITEM_ID, int maxCount)
     {
 
         PffItem pffItem =  Registry.register(Registry.ITEM, new Identifier(MOD_ID,ITEM_ID),
-
-
                 new PffItem (new FabricItemSettings()
         .maxCount(maxCount)
         ));
