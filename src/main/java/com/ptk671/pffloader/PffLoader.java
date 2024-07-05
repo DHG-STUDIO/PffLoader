@@ -16,12 +16,11 @@ public class PffLoader implements ModInitializer {
         String ITEM_ID = "my_pff_item";
         int maxCount = 64; // 任意の値
 
-        AddPffHideItem(MOD_ID, ITEM_ID, maxCount);
+        PffItem pffItem = AddPffHideItem(MOD_ID, ITEM_ID, maxCount);
 
 
-        return null;
+        return pffItem;
     };
-
 
     public static Identifier id(String patch)
     {
@@ -33,13 +32,11 @@ public class PffLoader implements ModInitializer {
     //テストコード
     public void onInitialize() {
 
-
         try {
             AddPffItemGroup("test",  addPffHideItemCaller.call());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         AddPffItem(MOD_ID,"test",64);
-
     }
 }

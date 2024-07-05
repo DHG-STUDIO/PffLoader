@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -29,13 +28,17 @@ public class Add {
         ));
     }
 
-    public static void AddPffHideItem(String MOD_ID,String ITEM_ID,int maxCount)
+    public static PffItem AddPffHideItem(String MOD_ID, String ITEM_ID, int maxCount)
     {
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID,ITEM_ID),new PffItem (new FabricItemSettings()
+
+        PffItem pffItem =  Registry.register(Registry.ITEM, new Identifier(MOD_ID,ITEM_ID),
+
+
+                new PffItem (new FabricItemSettings()
         .maxCount(maxCount)
         ));
+
+        return pffItem;
     }
-
-
 
 }
