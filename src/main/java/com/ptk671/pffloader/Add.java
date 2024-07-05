@@ -24,7 +24,7 @@ public class Add {
     }
 
 
-    public static void AddPffItem(String MOD_ID,String ITEM_ID,int maxCount) {
+    public static PffItem AddPffItem(String MOD_ID, String ITEM_ID, int maxCount) {
         PffItem pffItem = Registry.register(Registries.ITEM, new Identifier(MOD_ID, ITEM_ID), new PffItem(new FabricItemSettings()
                 .maxCount(maxCount)
 
@@ -33,6 +33,7 @@ public class Add {
         ItemGroupEvents.modifyEntriesEvent( PFF_CREATIVE_TAB).register(content -> {
             content.add(pffItem);
     });
+        return pffItem;
     }
 
     public static PffItem AddPffHideItem(String MOD_ID, String ITEM_ID, int maxCount)
