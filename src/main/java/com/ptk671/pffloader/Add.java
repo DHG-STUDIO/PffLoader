@@ -16,7 +16,7 @@ public class Add {
     public static void SettingPPFItemGroup  (String MOD_ID,String TAB_ID, Item pffItem,String DisplayName)
     {
       PFF_CREATIVE_TAB =  FabricItemGroupBuilder.build(
-                new Identifier(TAB_ID),
+                new Identifier(MOD_ID,TAB_ID),
                 () -> new ItemStack(pffItem)
                         .setCustomName(Text.of(DisplayName))
       );
