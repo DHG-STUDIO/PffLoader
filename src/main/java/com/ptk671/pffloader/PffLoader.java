@@ -1,15 +1,14 @@
 package com.ptk671.pffloader;
 
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
+import static com.ptk671.pffloader.Add.*;
+
 public class PffLoader implements ModInitializer {
     public static String MOD_ID = "pffloader";
-    public static  ItemGroup TEST_TAB = Add.itemGroup(MOD_ID,"all", Items.STONE);
-    public static Item TEST_ITEM = Add.item(PffLoader.TEST_TAB);
+
 
     public static Identifier id(String patch)
     {
@@ -17,8 +16,10 @@ public class PffLoader implements ModInitializer {
     }
 
     @Override
+    //テストコード
     public void onInitialize() {
+        AddPffItemGroup("test",  Items.STONE);
+AddPffItem(MOD_ID,"test",64);
 
-        SimpleRegistry.ItemRegistry(MOD_ID,"test",TEST_ITEM);
     }
 }

@@ -5,28 +5,37 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+
 
 public class Add {
 
-
-    public static Item item(ItemGroup itemGroup)
+    public static ItemGroup PFF_CREATIVE_TAB;
+    public static void AddPffItemGroup (String TAB_ID, Item pffItem)
     {
-      Item item = new Item(new FabricItemSettings().group(itemGroup));
-        return item;
+      PFF_CREATIVE_TAB =  FabricItemGroupBuilder.build(
+                new Identifier(TAB_ID),
+                () -> new ItemStack(pffItem));
     }
 
 
-
-
-
-    public static ItemGroup itemGroup(String MOD_ID, String TabId, Item item)
+    public static void AddPffItem(String MOD_ID,String ITEM_ID,int maxCount)
     {
-
-       FabricItemGroupBuilder fabricItemGroupBuilder = FabricItemGroupBuilder.create(new Identifier(MOD_ID,TabId))
-               .icon(() -> new ItemStack(item));
-      return fabricItemGroupBuilder.build();
-
+        Registry.register(Registry.ITEM, new Identifier( MOD_ID,ITEM_ID),new PffItem (new FabricItemSettings()
+                .maxCount(maxCount)
+                .group(PFF_CREATIVE_TAB)
+        ));
     }
+
+    public static void AddPffHideItem(String MOD_ID,String ITEM_ID,int maxCount)
+    {
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,ITEM_ID),new PffItem (new FabricItemSettings()
+        .maxCount(maxCount)
+        ));
+    }
+
+
 
 }

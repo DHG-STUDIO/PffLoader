@@ -6,11 +6,5 @@ import net.minecraft.util.registry.Registry;
 
 public class SimpleRegistry {
 
-    public static void ItemRegistry(String MOD_ID, String ITEM_ID, Item item)
-    {
-        Registry.register(Registry.ITEM, new Identifier( MOD_ID,ITEM_ID), item);
-    }
-
-
 
 }
