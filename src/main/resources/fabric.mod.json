@@ -6,10 +6,15 @@
   "description": "",
   "authors": [],
   "contact": {
-    "repo": "https://github.com/Ptki_uo/PffLoader 1.20.1"
+    "repo": "https://github.com/Ptki_uo/PffLoader"
   },
   "license": "MIT",
   "icon": "assets/pffloader/icon.png",
+  "custom": {
+    "modmenu": {
+      "badges": ["library"]
+    }
+  },
   "environment": "*",
   "entrypoints": {
     "client": [
@@ -20,8 +25,8 @@
     ]
   },
   "depends": {
-    "fabricloader": ">=${loader_version}",
+    "fabricloader": "*",
     "fabric": "*",
-    "minecraft": "${minecraft_version}"
+    "minecraft": "*"
   }
 }
