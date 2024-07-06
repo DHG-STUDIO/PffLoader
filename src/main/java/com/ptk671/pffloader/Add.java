@@ -14,39 +14,39 @@ import net.minecraft.util.Identifier;
 public class Add {
 
     public static RegistryKey<ItemGroup> PFF_CREATIVE_TAB;
-    public static void SettingPPFItemGroup (String MOD_ID,String TAB_ID, Item pffItem,String DisplayName)
-    {
-         PFF_CREATIVE_TAB = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MOD_ID,TAB_ID));
+
+    public static void SettingPPFItemGroup(String MOD_ID, String TAB_ID, Item pffItem, String DisplayName) {
+        PFF_CREATIVE_TAB = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MOD_ID, TAB_ID));
         Registry.register(Registries.ITEM_GROUP, new Identifier(MOD_ID, TAB_ID), FabricItemGroup.builder()
-                .displayName(Text.of(DisplayName))
+                .displayName(Text.translatable(DisplayName))
                 .icon(() -> new ItemStack(pffItem)).build());
 
     }
 
-
-    public static PffItem AddPffItem(String MOD_ID, String ITEM_ID, int maxCount) {
+    public static PffItem AddPffItem(String MOD_ID, String ITEM_ID, int maxCount, RegistryKey<ItemGroup> itemGroup) {
         PffItem pffItem = Registry.register(Registries.ITEM, new Identifier(MOD_ID, ITEM_ID), new PffItem(new FabricItemSettings()
                 .maxCount(maxCount)
 
         ));
 
-        ItemGroupEvents.modifyEntriesEvent( PFF_CREATIVE_TAB).register(content -> {
+        ItemGroupEvents.modifyEntriesEvent(itemGroup).register(content -> {
             content.add(pffItem);
-    });
+        });
         return pffItem;
     }
 
-    public static PffItem AddPffHideItem(String MOD_ID, String ITEM_ID, int maxCount)
-    {
+    public static PffItem AddPffAdvancedItem(int maxCount) {
 
-        PffItem pffItem =  Registry.register(Registries.ITEM, new Identifier(MOD_ID,ITEM_ID),
-
-
-                new PffItem (new FabricItemSettings()
-                        .maxCount(maxCount)
-                ));
+        PffItem pffItem = new PffItem(new FabricItemSettings()
+                .maxCount(maxCount)
+        );
 
         return pffItem;
     }
 
+    public static PffItem PffItemAddCreativeTab(PffItem pffItem,RegistryKey<ItemGroup> itemgroup) {
+        ItemGroupEvents.modifyEntriesEvent(itemgroup).register(content -> content.add(pffItem));
+
+        return pffItem;
+    }
 }
