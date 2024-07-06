@@ -13,15 +13,15 @@ public class PffLoader implements ModInitializer {
     //テストコード
     public void onInitialize() {
         //アイテムの設定
-        TEST = Add.AddPffAdvancedItem(64);
+        TEST = Add.AddPffAdvancedItem(64,PFF_CREATIVE_TAB);
 
         //クリエイティブタブの設定
         PFF_CREATIVE_TAB = SettingPPFItemGroup(MOD_ID,"test",TEST,"itemGroup.pffloader.test");
         PFF_CREATIVE_TAB_2 = SettingPPFItemGroup(MOD_ID,"test2",TEST,"itemGroup.pffloader.test");
 
 
-        //クリエイティブタブにアイテムを追加
-        PffItemAddCreativeTab(TEST,PFF_CREATIVE_TAB);
+        //クリエイティブタブにアイテムを追加(1.19.3以降)
+        PffItemAddCreativeTab_1_20(TEST,PFF_CREATIVE_TAB);
 
         //アイテムの登録
         SimpleRegistry.PffItemRegistry(MOD_ID,"newitem",TEST);

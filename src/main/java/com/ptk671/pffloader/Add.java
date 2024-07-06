@@ -3,7 +3,9 @@ package com.ptk671.pffloader;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -28,7 +30,6 @@ public class Add {
     public static PffItem AddPffItem(String MOD_ID, String ITEM_ID, int maxCount, RegistryKey<ItemGroup> itemGroup) {
         PffItem pffItem = Registry.register(Registries.ITEM, new Identifier(MOD_ID, ITEM_ID), new PffItem(new FabricItemSettings()
                 .maxCount(maxCount)
-
         ));
 
         ItemGroupEvents.modifyEntriesEvent(itemGroup).register(content -> {
@@ -37,7 +38,7 @@ public class Add {
         return pffItem;
     }
 
-    public static PffItem AddPffAdvancedItem(int maxCount) {
+    public static PffItem AddPffAdvancedItem(int maxCount,RegistryKey<ItemGroup> itemgroup) {
 
         PffItem pffItem = new PffItem(new FabricItemSettings()
                 .maxCount(maxCount)
@@ -46,9 +47,7 @@ public class Add {
         return pffItem;
     }
 
-    public static PffItem PffItemAddCreativeTab(PffItem pffItem,RegistryKey<ItemGroup> itemgroup) {
+    public static void PffItemAddCreativeTab_1_20(PffItem pffItem, RegistryKey<ItemGroup> itemgroup) {
         ItemGroupEvents.modifyEntriesEvent(itemgroup).register(content -> content.add(pffItem));
-
-        return pffItem;
     }
 }
