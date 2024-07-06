@@ -1,4 +1,4 @@
-package com.ptk671.pffloader.api.itemapi;
+package com.ptk671.pffloader.api.item;
 
 import com.ptk671.pffloader.PffItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
