@@ -2,33 +2,32 @@ package com.ptk671.pffloader;
 
 import net.fabricmc.api.ModInitializer;
 
-import java.util.concurrent.Callable;
-
 import static com.ptk671.pffloader.Add.*;
 
 public class PffLoader implements ModInitializer {
     public static String MOD_ID = "pffloader";
 
-    Callable<PffItem> addPffHideItemCaller = () -> {
-        String MOD_ID = "pffloader";
-        String ITEM_ID = "my_pff_item";
-        int maxCount = 64; // 任意の値
-
-        PffItem pffItem = AddPffHideItem(MOD_ID, ITEM_ID, maxCount);
-
-
-        return pffItem;
-    };
-
+    //アイテム変数
+    public static PffItem TEST;
     @Override
     //テストコード
     public void onInitialize() {
+        //アイテムの設定
+        TEST = Add.AddPffAdvancedItem(64);
 
-        try {
-            SettingPPFItemGroup(MOD_ID,"test", addPffHideItemCaller.call(),"testt");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        AddPffItem(MOD_ID,"test",64);
+        //クリエイティブタブの設定
+       PFF_CREATIVE_TAB = SettingPPFItemGroup(MOD_ID,"test",TEST,"itemGroup.pffloader.test");
+        PFF_CREATIVE_TAB_2 = SettingPPFItemGroup(MOD_ID,"test2",TEST,"itemGroup.pffloader.test");
+
+
+        //クリエイティブタブにアイテムを追加
+        PffItemAddCreativeTab(TEST,PFF_CREATIVE_TAB);
+
+        //アイテムの登録
+        SimpleRegistry.PffItemRegistry(MOD_ID,"newitem",TEST);
+
+        //簡易アイテム追加関数
+        AddPffItem(MOD_ID,"test",64,PFF_CREATIVE_TAB);
+        AddPffItem(MOD_ID,"test5",64,PFF_CREATIVE_TAB_2);
     }
 }

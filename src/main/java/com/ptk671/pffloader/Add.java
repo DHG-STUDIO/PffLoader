@@ -10,37 +10,38 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 
+
 public class Add {
 
     public static ItemGroup PFF_CREATIVE_TAB;
-    public static void SettingPPFItemGroup  (String MOD_ID,String TAB_ID, Item pffItem,String DisplayName)
-    {
-      PFF_CREATIVE_TAB =  FabricItemGroupBuilder.build(
-                new Identifier(MOD_ID,TAB_ID),
+    public static ItemGroup PFF_CREATIVE_TAB_2;
+
+    public static ItemGroup SettingPPFItemGroup(String MOD_ID, String TAB_ID, Item pffItem, String DisplayName) {
+                ItemGroup itemGroup =    FabricItemGroupBuilder.build(
+                new Identifier(MOD_ID, TAB_ID),
                 () -> new ItemStack(pffItem)
                         .setCustomName(Text.of(DisplayName))
-      );
+        );
+        return itemGroup;
     }
 
-
-    public static PffItem AddPffItem(String MOD_ID, String ITEM_ID, int maxCount)
-    {
-        PffItem pffItem = Registry.register(Registry.ITEM, new Identifier( MOD_ID,ITEM_ID),new PffItem (new FabricItemSettings()
+    public static PffItem AddPffItem(String MOD_ID, String ITEM_ID, int maxCount, ItemGroup itemGroup) {
+        PffItem pffItem = Registry.register(Registry.ITEM, new Identifier(MOD_ID, ITEM_ID), new PffItem(new FabricItemSettings()
                 .maxCount(maxCount)
-                .group(PFF_CREATIVE_TAB)
+                .group(itemGroup)
         ));
         return pffItem;
     }
+   public static FabricItemSettings cus = new FabricItemSettings();
+    public static PffItem AddPffAdvancedItem(int maxCount) {
 
-    public static PffItem AddPffHideItem(String MOD_ID, String ITEM_ID, int maxCount)
-    {
-
-        PffItem pffItem =  Registry.register(Registry.ITEM, new Identifier(MOD_ID,ITEM_ID),
-                new PffItem (new FabricItemSettings()
-        .maxCount(maxCount)
-        ));
+        PffItem pffItem = new PffItem(cus.maxCount(maxCount));
 
         return pffItem;
     }
 
+    public static void PffItemAddCreativeTab(PffItem pffItem, ItemGroup itemGroup) {
+
+
+    }
 }

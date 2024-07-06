@@ -6,4 +6,8 @@ public class PffItem extends Item {
     public PffItem(Settings settings) {
         super(settings);
     }
+
+    public PffItem asPfItem() {
+        return this;
+    }
 }
