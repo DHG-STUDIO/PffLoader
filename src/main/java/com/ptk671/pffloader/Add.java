@@ -32,16 +32,17 @@ public class Add {
         ));
         return pffItem;
     }
-   public static FabricItemSettings cus = new FabricItemSettings();
-    public static PffItem AddPffAdvancedItem(int maxCount) {
+    public static PffItem AddPffAdvancedItem(int maxCount,ItemGroup itemGroup) {
 
-        PffItem pffItem = new PffItem(cus.maxCount(maxCount));
+        PffItem pffItem = new PffItem((new FabricItemSettings()
+                .maxCount(maxCount)
+                .group(itemGroup)
+        ));
 
         return pffItem;
     }
 
-    public static void PffItemAddCreativeTab(PffItem pffItem, ItemGroup itemGroup) {
-
+    public static void PffItemAddCreativeTab_1_20(PffItem pffItem, ItemGroup itemGroup) {
 
     }
 }
