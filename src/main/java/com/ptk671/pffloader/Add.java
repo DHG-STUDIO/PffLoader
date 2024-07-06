@@ -14,13 +14,15 @@ import net.minecraft.util.Identifier;
 public class Add {
 
     public static RegistryKey<ItemGroup> PFF_CREATIVE_TAB;
+    public static RegistryKey<ItemGroup> PFF_CREATIVE_TAB_2;
 
-    public static void SettingPPFItemGroup(String MOD_ID, String TAB_ID, Item pffItem, String DisplayName) {
-        PFF_CREATIVE_TAB = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MOD_ID, TAB_ID));
+    public static RegistryKey<ItemGroup> SettingPPFItemGroup(String MOD_ID, String TAB_ID, Item pffItem, String DisplayName) {
+        RegistryKey<ItemGroup> itemgroup = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MOD_ID, TAB_ID));
         Registry.register(Registries.ITEM_GROUP, new Identifier(MOD_ID, TAB_ID), FabricItemGroup.builder()
                 .displayName(Text.translatable(DisplayName))
                 .icon(() -> new ItemStack(pffItem)).build());
 
+        return itemgroup;
     }
 
     public static PffItem AddPffItem(String MOD_ID, String ITEM_ID, int maxCount, RegistryKey<ItemGroup> itemGroup) {
