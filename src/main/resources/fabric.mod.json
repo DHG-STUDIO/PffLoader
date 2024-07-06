@@ -10,6 +10,11 @@
   },
   "license": "MIT",
   "icon": "assets/pffloader/icon.png",
+  "custom": {
+    "modmenu": {
+      "badges": ["library"]
+    }
+  },
   "environment": "*",
   "entrypoints": {
     "client": [
@@ -20,8 +25,8 @@
     ]
   },
   "depends": {
-    "fabricloader": ">=${loader_version}",
+    "fabricloader": "*",
     "fabric": "*",
-    "minecraft": ">=1.17"
+    "minecraft": "*"
   }
 }
