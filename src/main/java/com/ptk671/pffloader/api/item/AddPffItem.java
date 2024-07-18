@@ -6,11 +6,11 @@ import net.minecraft.item.ItemGroup;
 public class AddPffItem {
 
     @Deprecated
-    public static PffItem pffSimpleItemSetting(PffItem pffItem,int maxCount,ItemGroup itemGroup) {
+    public static PffItem pffSimpleItemSetting(PffItem pffItem2,int maxCount,ItemGroup itemGroup) {
 
         PffItem pffItem = new PffItem((new PffItemSetting()
                 .maxItemStack(maxCount)
-                .addItemGroup(pffitem,itemGroup)
+                .addItemGroup(pffItem2,itemGroup)
                 .build()
         ));
 
