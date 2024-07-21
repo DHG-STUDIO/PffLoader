@@ -1,4 +1,4 @@
-package com.ptk671.pffloader;
+package com.ptk671.pffloader.api.item;
 
 import net.minecraft.item.Item;
 
