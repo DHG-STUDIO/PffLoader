@@ -4,7 +4,7 @@
   "version": "${version}",
   "name": "PffLoader",
   "description": "",
-  "authors": [],
+  "authors": ["Ptki_uo"],
   "contact": {
     "repo": "https://github.com/Ptki_uo/PffLoader"
   },

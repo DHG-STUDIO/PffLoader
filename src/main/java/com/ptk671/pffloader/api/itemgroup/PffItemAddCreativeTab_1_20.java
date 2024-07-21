@@ -1,6 +1,6 @@
 package com.ptk671.pffloader.api.itemgroup;
 
-import com.ptk671.pffloader.PffItem;
+import com.ptk671.pffloader.api.item.PffItem;
 import net.minecraft.item.ItemGroup;
 
 public class PffItemAddCreativeTab_1_20 {
