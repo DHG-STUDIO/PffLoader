@@ -7,7 +7,5 @@ public class PffLoaderClient implements ClientModInitializer {
 
     public void onInitializeClient() {
 
-
-
     }
 }
