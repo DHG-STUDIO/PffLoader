@@ -1,8 +1,8 @@
 package com.ptk671.pffloader.api.item;
 
 import com.ptk671.pffloader.PffItem;
+import com.ptk671.pffloader.api.itemgroup.PffItemAddCreativeTab_1_20;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.RegistryKey;
 
@@ -15,9 +15,9 @@ public class PffItemSetting {
         return this;
     }
 
-    public PffItemSetting addItemGroup(PffItem pffItem,RegistryKey<ItemGroup> itemGroup)
+    public  PffItemSetting addItemGroup(PffItem pffItem,RegistryKey<ItemGroup> itemGroup)
     {
-        ItemGroupEvents.modifyEntriesEvent(itemGroup).register(content -> content.add(pffItem));
+        PffItemAddCreativeTab_1_20.registry(pffItem,itemGroup);
         return this;
     }
 
