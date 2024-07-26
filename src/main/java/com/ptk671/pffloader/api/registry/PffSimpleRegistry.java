@@ -10,18 +10,18 @@ import net.minecraft.util.Identifier;
 
 public class PffSimpleRegistry {
 
-    public static void PffItemRegistry(String MOD_ID, String ITEM_ID, PffItem pffItem)
+    public static void PffItemRegistry(Identifier identifier, PffItem pffItem)
     {
-        Registry.register(Registries.ITEM, new Identifier(MOD_ID, ITEM_ID), pffItem);
+        Registry.register(Registries.ITEM, identifier, pffItem);
     }
 
-    public static void PffItemRegistry(String MOD_ID, String ITEM_ID, PffBlockItem pffItem)
+    public static void PffItemRegistry(Identifier identifier, PffBlockItem pffItem)
     {
-        Registry.register(Registries.ITEM, new Identifier(MOD_ID, ITEM_ID), pffItem);
+        Registry.register(Registries.ITEM, identifier, pffItem);
     }
 
-    public static void PffBlockRegistry(String MOD_ID, String BLOCK_ID, PffBlock pffBlock)
+    public static void PffBlockRegistry(Identifier identifier, PffBlock pffBlock)
     {
-        Registry.register(Registries.BLOCK, new Identifier(MOD_ID, BLOCK_ID), pffBlock);
+        Registry.register(Registries.BLOCK, identifier, pffBlock);
     }
 }
