@@ -7,6 +7,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PffItemGroup {
     private final Identifier identifier;
     private Text displayName = null;
@@ -15,7 +18,7 @@ public class PffItemGroup {
     private boolean noScrollbar = false;
     private boolean special = false;
     private String texture;
-
+    private List<ItemStack> stacks2 = new ArrayList<>();
 
     public PffItemGroup(Identifier identifier) {
         this.identifier = identifier;
@@ -58,11 +61,21 @@ public class PffItemGroup {
         this.texture = texture;
     }
 
+    public PffItemGroup appendItems(Item item)
+    {
+        stacks2.add(new ItemStack(item));
+        return this;
+    }
+
     public ItemGroup build()
     {
 
         ItemGroup itemGroup = FabricItemGroupBuilder.create(identifier)
                 .icon(() -> new ItemStack(iconSupplier.getItem()))
+                .appendItems(stacks -> {
+                    stacks.addAll(stacks2);
+                })
+
                 .build();
         if (displayName != null) itemGroup.setName(displayName.getString());
         if (noRenderedName) itemGroup.setName("");
