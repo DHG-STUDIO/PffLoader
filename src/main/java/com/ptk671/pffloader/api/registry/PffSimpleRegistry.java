@@ -25,7 +25,6 @@ public class PffSimpleRegistry {
     public static void PffBlockRegistry(Identifier identifier, PffBlock pffBlock)
     {
         Registry.register(Registries.BLOCK, identifier, pffBlock);
-        Registry.register(Registries.BLOCK, identifier, pffBlock);
     }
 
     public static void PffItemGroupRegistry(Identifier identifier,PffItemGroup itemGroup)
