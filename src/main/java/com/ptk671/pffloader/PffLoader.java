@@ -10,27 +10,9 @@ import net.minecraft.util.Identifier;
 
 public class PffLoader implements ModInitializer {
     public static String MOD_ID = "pffloader";
-    public static PffItem fe;
-    public static PffItem fe2;
-    public static PffItemGroup sd;
-
 
     @Override
     public void onInitialize() {
 
-        fe = new PffItem(new PffItemSetting().build());
-        fe2 = new PffItem(new PffItemSetting()
-                .build());
-        PffSimpleRegistry.PffItemRegistry(new Identifier("pff","test"),fe);
-        PffSimpleRegistry.PffItemRegistry(new Identifier("pff","test2"),fe2);
-
-        sd  = PffItemGroup.create(new Identifier(MOD_ID,"all"))
-
-                .setIcon(Items.SAND)
-                .appendItems(fe2)
-                .appendItems(fe);
-
-
-        PffSimpleRegistry.PffItemGroupRegistry(new Identifier(MOD_ID,"all"),sd);
     }
 }
