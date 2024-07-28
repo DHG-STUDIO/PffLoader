@@ -7,7 +7,7 @@ public class PffBlock extends Block {
         super(settings);
     }
 
-    public PffBlock(PffBlockSetting settings)
+    public PffBlock(PffBlockSettings settings)
     {
         super(settings.build());
     }
