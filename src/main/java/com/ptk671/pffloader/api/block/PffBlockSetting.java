@@ -19,6 +19,36 @@ public class PffBlockSetting {
         this.settings = AbstractBlock.Settings.create();
     }
 
+    public PffBlockSetting (DyeColor color, AbstractBlock.Settings settings) {
+
+        this.settings = settings;
+    }
+
+    public PffBlockSetting (MapColor color, AbstractBlock.Settings settings) {
+
+        this.settings = settings;
+    }
+
+    public PffBlockSetting (Function<BlockState, MapColor> mapColor, AbstractBlock.Settings settings) {
+
+        this.settings = settings;
+    }
+
+    public PffBlockSetting mapColor1_20 (DyeColor color) {
+        this.settings.mapColor(color.getMapColor());
+        return this;
+    }
+
+    public PffBlockSetting mapColor1_20 (MapColor color) {
+        this.settings.mapColor(color);
+        return this;
+    }
+
+    public PffBlockSetting mapColor1_20 (Function<BlockState, MapColor> mapColor) {
+        this.settings.mapColor(mapColor);
+        return this;
+    }
+
 
     public PffBlockSetting copyOf(PffBlock pffBlock) {
         AbstractBlock.Settings.copy(pffBlock);
@@ -55,16 +85,6 @@ public class PffBlockSetting {
         return this;
     }
 
-    public PffBlockSetting mapColor(MapColor color) {
-        settings.mapColor(color);
-        return this;
-    }
-
-    public PffBlockSetting mapColor(DyeColor color) {
-        settings.mapColor(color.getMapColor());
-        return this;
-    }
-
     @Deprecated
     public PffBlockSetting mapColor(Function<BlockState, MapColor> color) {
         return this;
@@ -90,13 +110,7 @@ public class PffBlockSetting {
         return this;
     }
 
-    public PffBlockSetting hardness(float hardness) {
-        settings.hardness(hardness);
-        return this;
-    }
-
     public PffBlockSetting noBlockBreakParticles() {
-        settings.noBlockBreakParticles();
         return this;
     }
 
@@ -115,13 +129,8 @@ public class PffBlockSetting {
         return this;
     }
 
-    public PffBlockSetting resistance(float resistance) {
-        settings.resistance(resistance);
-        return this;
-    }
-
     public PffBlockSetting strength(Float strength) {
-    settings.strength(strength);
+        settings.strength(strength);
         return this;
     }
 
@@ -166,17 +175,12 @@ public class PffBlockSetting {
         return this;
     }
 
-    public PffBlockSetting offset(AbstractBlock.OffsetType offsetType) {
-        settings.offset(offsetType);
-        return this;
-    }
-
     public PffBlockSetting allowsSpawning(AbstractBlock.TypedContextPredicate<net.minecraft.entity.EntityType<?>> predicate) {
         settings.allowsSpawning(predicate);
         return this;
     }
-    
+
     public AbstractBlock.Settings build() {
-    return  settings;
+        return settings;
     }
 }
