@@ -8,16 +8,14 @@ public class PffSimpleItemSetting {
 
     public static PffItem Setting  (int maxCount) {
     PffItem pffItem = new PffItem(new PffItemSetting()
-        .maxCount(maxCount)
-        .build());
+        .maxCount(maxCount));
         return pffItem;
     }
 
     public static PffItem Setting  (int maxCount, RegistryKey<ItemGroup> itemGroup) {
         PffItem pffItem = new PffItem(new PffItemSetting()
                 .maxCount(maxCount)
-                .group(itemGroup)
-                .build());
+                .group(itemGroup));
         return pffItem;
     }
 }
