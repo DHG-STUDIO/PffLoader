@@ -4,7 +4,6 @@ import com.ptk671.pffloader.api.itemgroup.PffItemAddCreativeTab_1_20;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.resource.featuretoggle.FeatureFlag;
 import net.minecraft.util.Rarity;
 
 public class PffItemSetting {
@@ -34,7 +33,7 @@ public class PffItemSetting {
     }
 
     //>=1.19.3
-    public PffItemSetting group(PffItem pffItem,RegistryKey<ItemGroup> itemGroup)
+    public PffItemSetting group(PffItem pffItem, RegistryKey<ItemGroup> itemGroup)
     {
         PffItemAddCreativeTab_1_20.registry(pffItem,itemGroup);
         return this;
@@ -43,6 +42,7 @@ public class PffItemSetting {
     //=>1.19.2
     public PffItemSetting group(RegistryKey<ItemGroup> itemGroup)
     {
+
         return this;
     }
 
@@ -55,12 +55,6 @@ public class PffItemSetting {
     public PffItemSetting fireproof()
     {
         settings.fireproof();
-        return this;
-    }
-
-    public PffItemSetting requires(FeatureFlag... features)
-    {
-        settings.requires(features);
         return this;
     }
 
