@@ -57,6 +57,12 @@ public class PffItemSetting {
         return this;
     }
 
+    public PffItemSetting food(PffFoodComponent foodComponent)
+    {
+        settings.food(foodComponent.build());
+        return this;
+    }
+
     public FabricItemSettings build() {
         return settings;
     }
