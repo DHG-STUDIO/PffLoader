@@ -7,7 +7,8 @@ public class PffItem extends Item {
         super(settings);
     }
 
-    public PffItem asPfItem() {
-        return this;
+    public PffItem(PffItemSetting settings) {
+        super(settings.build());
     }
+
 }
