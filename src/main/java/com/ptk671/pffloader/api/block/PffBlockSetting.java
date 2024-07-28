@@ -16,6 +16,29 @@ public class PffBlockSetting {
         this.settings = AbstractBlock.Settings.of(Material.STONE);
     }
 
+    public PffBlockSetting (DyeColor color) {
+        this.settings = AbstractBlock.Settings.of(Material.STONE,color.getMapColor());
+    }
+
+    public PffBlockSetting (MapColor color) {
+        this.settings = AbstractBlock.Settings.of(Material.STONE,color);
+    }
+
+    public PffBlockSetting (Function<BlockState, MapColor> mapColor) {
+        this.settings = AbstractBlock.Settings.of(Material.STONE,mapColor);
+    }
+
+    public PffBlockSetting mapColor1_20 (DyeColor color) {
+        return this;
+    }
+
+    public PffBlockSetting mapColor1_20 (MapColor color) {
+        return this;
+    }
+
+    public PffBlockSetting mapColor1_20 (Function<BlockState, MapColor> mapColor) {
+        return this;
+    }
 
     public PffBlockSetting copyOf(PffBlock pffBlock) {
         AbstractBlock.Settings.copy(pffBlock);
@@ -52,14 +75,6 @@ public class PffBlockSetting {
         return this;
     }
 
-    public PffBlockSetting mapColor(MapColor color) {
-        return this;
-    }
-
-    public PffBlockSetting mapColor(DyeColor color) {
-        return this;
-    }
-
     @Deprecated
     public PffBlockSetting mapColor(Function<BlockState, MapColor> color) {
         return this;
@@ -85,11 +100,6 @@ public class PffBlockSetting {
         return this;
     }
 
-    public PffBlockSetting hardness(float hardness) {
-
-        return this;
-    }
-
     public PffBlockSetting noBlockBreakParticles() {
         return this;
     }
@@ -106,10 +116,6 @@ public class PffBlockSetting {
 
     public PffBlockSetting nonOpaque() {
         settings.nonOpaque();
-        return this;
-    }
-
-    public PffBlockSetting resistance(float resistance) {
         return this;
     }
 
@@ -159,16 +165,12 @@ public class PffBlockSetting {
         return this;
     }
 
-    public PffBlockSetting offset(AbstractBlock.OffsetType offsetType) {
-        return this;
-    }
-
     public PffBlockSetting allowsSpawning(AbstractBlock.TypedContextPredicate<net.minecraft.entity.EntityType<?>> predicate) {
         settings.allowsSpawning(predicate);
         return this;
     }
 
     public AbstractBlock.Settings build() {
-        return  settings;
+        return settings;
     }
 }
