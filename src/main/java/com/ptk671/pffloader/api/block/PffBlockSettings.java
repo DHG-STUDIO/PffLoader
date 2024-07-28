@@ -8,164 +8,164 @@ import net.minecraft.util.DyeColor;
 import java.util.function.Function;
 import java.util.function.ToIntFunction;
 
-public class PffBlockSetting {
+public class PffBlockSettings {
 
     private final AbstractBlock.Settings settings;
 
-    public PffBlockSetting() {
+    public PffBlockSettings() {
         this.settings = AbstractBlock.Settings.of(Material.STONE);
     }
 
-    public PffBlockSetting (DyeColor color) {
+    public PffBlockSettings(DyeColor color) {
         this.settings = AbstractBlock.Settings.of(Material.STONE,color.getMapColor());
     }
 
-    public PffBlockSetting (MapColor color) {
+    public PffBlockSettings(MapColor color) {
         this.settings = AbstractBlock.Settings.of(Material.STONE,color);
     }
 
-    public PffBlockSetting (Function<BlockState, MapColor> mapColor) {
+    public PffBlockSettings(Function<BlockState, MapColor> mapColor) {
         this.settings = AbstractBlock.Settings.of(Material.STONE,mapColor);
     }
 
-    public PffBlockSetting mapColor1_20 (DyeColor color) {
+    public PffBlockSettings mapColor1_20 (DyeColor color) {
         return this;
     }
 
-    public PffBlockSetting mapColor1_20 (MapColor color) {
+    public PffBlockSettings mapColor1_20 (MapColor color) {
         return this;
     }
 
-    public PffBlockSetting mapColor1_20 (Function<BlockState, MapColor> mapColor) {
+    public PffBlockSettings mapColor1_20 (Function<BlockState, MapColor> mapColor) {
         return this;
     }
 
-    public PffBlockSetting copyOf(PffBlock pffBlock) {
+    public PffBlockSettings copyOf(PffBlock pffBlock) {
         AbstractBlock.Settings.copy(pffBlock);
         return this;
     }
 
-    public PffBlockSetting copyOf(PffBlockSetting pffBlockSetting) {
-        FabricBlockSettings.copyOf(pffBlockSetting.build());
+    public PffBlockSettings copyOf(PffBlockSettings pffBlockSettings) {
+        FabricBlockSettings.copyOf(pffBlockSettings.build());
         return this;
     }
 
-    public PffBlockSetting air() {
+    public PffBlockSettings air() {
         settings.air();
         return this;
     }
 
-    public PffBlockSetting blockVision(AbstractBlock.ContextPredicate predicate) {
+    public PffBlockSettings blockVision(AbstractBlock.ContextPredicate predicate) {
         settings.blockVision(predicate);
         return this;
     }
 
-    public PffBlockSetting postProcess(AbstractBlock.ContextPredicate predicate) {
+    public PffBlockSettings postProcess(AbstractBlock.ContextPredicate predicate) {
         settings.postProcess(predicate);
         return this;
     }
 
-    public PffBlockSetting solidBlock(AbstractBlock.ContextPredicate predicate) {
+    public PffBlockSettings solidBlock(AbstractBlock.ContextPredicate predicate) {
         settings.solidBlock(predicate);
         return this;
     }
 
-    public PffBlockSetting suffocates(AbstractBlock.ContextPredicate predicate) {
+    public PffBlockSettings suffocates(AbstractBlock.ContextPredicate predicate) {
         settings.suffocates(predicate);
         return this;
     }
 
     @Deprecated
-    public PffBlockSetting mapColor(Function<BlockState, MapColor> color) {
+    public PffBlockSettings mapColor(Function<BlockState, MapColor> color) {
         return this;
     }
 
-    public PffBlockSetting dropsLike(Block source) {
+    public PffBlockSettings dropsLike(Block source) {
         settings.dropsLike(source);
         return this;
     }
 
-    public PffBlockSetting breakInstantly() {
+    public PffBlockSettings breakInstantly() {
         settings.breakInstantly();
         return this;
     }
 
-    public PffBlockSetting dropsNothing() {
+    public PffBlockSettings dropsNothing() {
         settings.dropsNothing();
         return this;
     }
 
-    public PffBlockSetting dynamicBounds() {
+    public PffBlockSettings dynamicBounds() {
         settings.dynamicBounds();
         return this;
     }
 
-    public PffBlockSetting noBlockBreakParticles() {
+    public PffBlockSettings noBlockBreakParticles() {
         return this;
     }
 
-    public PffBlockSetting requiresTool() {
+    public PffBlockSettings requiresTool() {
         settings.requiresTool();
         return this;
     }
 
-    public PffBlockSetting noCollision() {
+    public PffBlockSettings noCollision() {
         settings.noCollision();
         return this;
     }
 
-    public PffBlockSetting nonOpaque() {
+    public PffBlockSettings nonOpaque() {
         settings.nonOpaque();
         return this;
     }
 
-    public PffBlockSetting strength(Float strength) {
+    public PffBlockSettings strength(Float strength) {
         settings.strength(strength);
         return this;
     }
 
-    public PffBlockSetting strength(Float hardness,Float resistance) {
+    public PffBlockSettings strength(Float hardness, Float resistance) {
         settings.strength(hardness,resistance);
         return this;
     }
 
 
-    public PffBlockSetting ticksRandomly() {
+    public PffBlockSettings ticksRandomly() {
         settings.ticksRandomly();
         return this;
     }
 
-    public PffBlockSetting sounds(BlockSoundGroup blockSoundGroup) {
+    public PffBlockSettings sounds(BlockSoundGroup blockSoundGroup) {
         settings.sounds(blockSoundGroup);
         return this;
     }
 
-    public PffBlockSetting luminance(ToIntFunction<BlockState> luminance) {
+    public PffBlockSettings luminance(ToIntFunction<BlockState> luminance) {
         settings.luminance(luminance);
         return this;
     }
 
-    public PffBlockSetting jumpVelocityMultiplier(float jumpVelocityMultiplier) {
+    public PffBlockSettings jumpVelocityMultiplier(float jumpVelocityMultiplier) {
         settings.jumpVelocityMultiplier(jumpVelocityMultiplier);
         return this;
     }
 
-    public PffBlockSetting slipperiness(float slipperiness) {
+    public PffBlockSettings slipperiness(float slipperiness) {
         settings.slipperiness(slipperiness);
         return this;
     }
 
-    public PffBlockSetting velocityMultiplier(float velocityMultiplier) {
+    public PffBlockSettings velocityMultiplier(float velocityMultiplier) {
         settings.velocityMultiplier(velocityMultiplier);
         return this;
     }
 
-    public PffBlockSetting emissiveLighting(AbstractBlock.ContextPredicate predicate) {
+    public PffBlockSettings emissiveLighting(AbstractBlock.ContextPredicate predicate) {
         settings.emissiveLighting(predicate);
         return this;
     }
 
-    public PffBlockSetting allowsSpawning(AbstractBlock.TypedContextPredicate<net.minecraft.entity.EntityType<?>> predicate) {
+    public PffBlockSettings allowsSpawning(AbstractBlock.TypedContextPredicate<net.minecraft.entity.EntityType<?>> predicate) {
         settings.allowsSpawning(predicate);
         return this;
     }
