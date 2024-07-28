@@ -56,6 +56,11 @@ public class PffItemSetting {
         settings.fireproof();
         return this;
     }
+    public PffItemSetting food(PffFoodComponent pffFoodComponent)
+    {
+        settings.food(pffFoodComponent.build());
+        return this;
+    }
 
     public FabricItemSettings build() {
         return settings;
