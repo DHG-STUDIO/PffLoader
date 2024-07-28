@@ -6,6 +6,5 @@ public class PffLoader implements ModInitializer {
     public static String MOD_ID = "pffloader";
     @Override
     public void onInitialize() {
-
     }
 }
