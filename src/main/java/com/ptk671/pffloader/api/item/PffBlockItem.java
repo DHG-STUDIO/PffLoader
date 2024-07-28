@@ -7,7 +7,7 @@ public class PffBlockItem extends BlockItem {
     public PffBlockItem(PffBlock block, Settings settings) {
         super(block, settings);
     }
-    public PffBlockItem(PffBlock block,PffItemSetting settings){
+    public PffBlockItem(PffBlock block, PffItemSettings settings){
         super(block,settings.build());
 
     }

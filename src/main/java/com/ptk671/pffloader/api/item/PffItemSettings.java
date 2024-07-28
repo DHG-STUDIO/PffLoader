@@ -7,59 +7,59 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Rarity;
 
-public class PffItemSetting {
+public class PffItemSettings {
     private FabricItemSettings settings = new FabricItemSettings();
 
-    public PffItemSetting maxCount(int maxcount)
+    public PffItemSettings maxCount(int maxcount)
     {
         settings.maxCount(maxcount);
         return this;
     }
 
-    public PffItemSetting maxDamageIfAbsent(int maxDamage)
+    public PffItemSettings maxDamageIfAbsent(int maxDamage)
     {
         settings.maxDamageIfAbsent(maxDamage);
         return this;
     }
 
-    public PffItemSetting maxDamage(int maxDamage)
+    public PffItemSettings maxDamage(int maxDamage)
     {
         settings.maxDamage(maxDamage);
         return this;
     }
-    public PffItemSetting recipeRemainder(Item recipeRemainder)
+    public PffItemSettings recipeRemainder(Item recipeRemainder)
     {
         settings.recipeRemainder(recipeRemainder);
         return this;
     }
 
     //>=1.19.3
-    public PffItemSetting group(PffItem pffItem, RegistryKey<ItemGroup> itemGroup)
+    public PffItemSettings group(PffItem pffItem, RegistryKey<ItemGroup> itemGroup)
     {
         PffItemAddCreativeTab_1_20.registry(pffItem,itemGroup);
         return this;
     }
 
     //=>1.19.2
-    public PffItemSetting group(RegistryKey<ItemGroup> itemGroup)
+    public PffItemSettings group(RegistryKey<ItemGroup> itemGroup)
     {
 
         return this;
     }
 
-    public PffItemSetting rarity(Rarity rarity)
+    public PffItemSettings rarity(Rarity rarity)
     {
         settings.rarity(rarity);
         return this;
     }
 
-    public PffItemSetting fireproof()
+    public PffItemSettings fireproof()
     {
         settings.fireproof();
         return this;
     }
 
-    public PffItemSetting food(PffFoodComponent pffFoodComponent)
+    public PffItemSettings food(PffFoodComponent pffFoodComponent)
     {
         settings.food(pffFoodComponent.build());
         return this;
