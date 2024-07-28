@@ -58,6 +58,12 @@ public class PffItemSetting {
         return this;
     }
 
+    public PffItemSetting food(PffFoodComponent pffFoodComponent)
+    {
+        settings.food(pffFoodComponent.build());
+        return this;
+    }
+
     public Item.Settings build() {
         return settings;
     }
