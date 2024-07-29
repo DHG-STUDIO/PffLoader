@@ -8,7 +8,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class PffSimpleRegistry {
+public class PffRegistry {
 
     public static void PffItemRegistry(Identifier identifier, PffItem pffItem)
     {
@@ -28,9 +28,14 @@ public class PffSimpleRegistry {
         ItemGroup itemGroup1 = itemGroup.build();
     }
 
+    public static void PffItemGroupRegistry(Identifier identifier, ItemGroup itemGroup)
+    {
+        ItemGroup itemGroup1 = itemGroup;
+    }
+
     public static void PffItemGroupRegistry(PffItemGroup itemGroup)
     {
-        ItemGroup itemGroup1 = itemGroup.build();
+        itemGroup.build();
     }
 
 }
