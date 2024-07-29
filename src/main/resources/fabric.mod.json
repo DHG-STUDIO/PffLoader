@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "pffloader",
+  "version": "${version}",
+  "name": "PffLoader",
+  "description": "",
+  "authors": ["Ptki_uo"],
+  "contact": {
+    "repo": "https://github.com/Ptki_uo/PffLoader"
+  },
+  "license": "MIT",
+  "icon": "assets/pffloader/icon.png",
+  "custom": {
+    "modmenu": {
+      "badges": ["library"]
+    }
+  },
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.ptk671.pffloader.client.PffLoaderClient"
+    ],
+    "main": [
+      "com.ptk671.pffloader.PffLoader"
+    ]
+  },
+  "depends": {
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": "*"
+  }
+}
