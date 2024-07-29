@@ -10,7 +10,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-public class PffSimpleRegistry {
+public class PffRegistry {
 
     public static void PffItemRegistry(Identifier identifier, PffItem pffItem)
     {
@@ -27,10 +27,10 @@ public class PffSimpleRegistry {
         Registry.register(Registries.BLOCK, identifier, pffBlock);
     }
 
-    public static void PffItemGroupRegistry(Identifier identifier,PffItemGroup itemGroup)
+    public static void PffItemGroupRegistry(PffItemGroup itemGroup)
     {
-       ItemGroup itemGroup1 = itemGroup.build();
-        Registry.register(Registries.ITEM_GROUP, identifier, itemGroup1);
+        ItemGroup itemGroup1 = itemGroup.build();
+        Registry.register(Registries.ITEM_GROUP, itemGroup.toString(), itemGroup1);
     }
 
 }

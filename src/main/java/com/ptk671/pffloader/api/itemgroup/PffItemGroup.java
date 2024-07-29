@@ -1,5 +1,6 @@
 package com.ptk671.pffloader.api.itemgroup;
 
+import com.ptk671.pffloader.api.util.PffText;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -11,9 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PffItemGroup {
-    private final Identifier identifier;
+    public Identifier identifier;
     private ItemStack iconSupplier = null;
     private List<ItemStack> entries2 = new ArrayList<>();
+    private Text DisplayName;
 
     public PffItemGroup(Identifier identifier) {
         this.identifier = identifier;
@@ -24,15 +26,15 @@ public class PffItemGroup {
         return new PffItemGroup(identifier);
     }
 
-    public PffItemGroup setIcon(ItemStack iconSupplier) {
+    public PffItemGroup Icon(ItemStack iconSupplier) {
         this.iconSupplier = iconSupplier;
         return this;
 
     }
 
-    public PffItemGroup setIcon(Item PffItem)
+    public PffItemGroup Icon(Item PffItem)
     {
-        return setIcon(new ItemStack(PffItem));
+        return Icon(new ItemStack(PffItem));
     }
 
     public PffItemGroup appendItems(Item item)
@@ -41,11 +43,22 @@ public class PffItemGroup {
         return this;
     }
 
-    public ItemGroup build() {
-        return FabricItemGroup.builder()
-                .icon(() -> new ItemStack(iconSupplier.getItem()))
-                .entries((context, entries) -> {entries.addAll(entries2);})
-                .displayName(Text.translatable("itemGroup."+identifier.getNamespace()+"."+identifier.getPath()))
-                .build();
+    public PffItemGroup DisplayName(Text text)
+    {
+        this.DisplayName = text;
+        return this;
     }
+
+    public ItemGroup build()
+    {
+        ItemGroup.Builder itemGroup = FabricItemGroup.builder();
+        if(iconSupplier != null) itemGroup.icon(() -> new ItemStack(iconSupplier.getItem()));
+        itemGroup.entries((context, entries) -> {entries.addAll(entries2);});
+        if(DisplayName == null) itemGroup.displayName(PffText.translatable("itemGroup."+identifier.getNamespace()+"."+identifier.getPath()));
+        if(DisplayName != null) itemGroup.displayName(DisplayName);
+        return itemGroup.build();
+
+    }
+
+
 }
