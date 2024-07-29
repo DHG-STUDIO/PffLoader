@@ -4,34 +4,35 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PffItemGroup {
-    private final Identifier identifier;
+    public Identifier identifier;
     private ItemStack iconSupplier = null;
     private List<ItemStack> stacks2 = new ArrayList<>();
+    private Text DisplayName;
 
     public PffItemGroup(Identifier identifier) {
         this.identifier = identifier;
     }
 
-
     public static PffItemGroup create(Identifier identifier) {
         return new PffItemGroup(identifier);
     }
 
-    public PffItemGroup setIcon(ItemStack iconSupplier) {
+    public PffItemGroup Icon(ItemStack iconSupplier) {
         this.iconSupplier = iconSupplier;
         return this;
 
     }
 
-    public PffItemGroup setIcon(Item PffItem)
+    public PffItemGroup Icon(Item PffItem)
     {
-        return setIcon(new ItemStack(PffItem));
+        return Icon(new ItemStack(PffItem));
     }
 
     public PffItemGroup appendItems(Item item)
@@ -40,16 +41,19 @@ public class PffItemGroup {
         return this;
     }
 
+    public PffItemGroup DisplayName(Text text)
+    {
+        //>=1.20
+        this.DisplayName = text;
+        return this;
+    }
+
     public ItemGroup build()
     {
-
-        ItemGroup itemGroup = FabricItemGroupBuilder.create(identifier)
-                .icon(() -> new ItemStack(iconSupplier.getItem()))
-                .appendItems(stacks -> {
-                    stacks.addAll(stacks2);
-                })
-                .build();
-        return itemGroup;
+        FabricItemGroupBuilder itemGroup = FabricItemGroupBuilder.create(identifier);
+        if(iconSupplier != null) itemGroup.icon(() -> new ItemStack(iconSupplier.getItem()));
+        if(stacks2 != null) itemGroup.appendItems(stacks -> {stacks.addAll(stacks2);});
+        return itemGroup.build();
     }
 
 }
