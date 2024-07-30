@@ -25,17 +25,17 @@ public class PffRegistry {
 
     public static void PffItemGroupRegistry(Identifier identifier, PffItemGroup itemGroup)
     {
-        ItemGroup itemGroup1 = itemGroup.build();
-    }
-
-    public static void PffItemGroupRegistry(Identifier identifier, ItemGroup itemGroup)
-    {
-        ItemGroup itemGroup1 = itemGroup;
+        itemGroup.build();
     }
 
     public static void PffItemGroupRegistry(PffItemGroup itemGroup)
     {
-         itemGroup.build();
+        itemGroup.build();
+    }
+
+    public static void PffItemGroupRegistry(Identifier identifier, ItemGroup itemGroup)
+    {
+
     }
 
 }
