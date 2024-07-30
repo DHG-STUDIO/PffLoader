@@ -6,7 +6,9 @@
   "description": "",
   "authors": ["Ptki_uo"],
   "contact": {
-    "repo": "https://github.com/Ptki_uo/PffLoader"
+    "repo": "https://github.com/Ptki_uo/PffLoader",
+    "homepage": "https://github.com/Ptkiuo/PffLoader",
+    "sources": "https://github.com/Ptkiuo/PffLoader"
   },
   "license": "MIT",
   "icon": "assets/pffloader/icon.png",
