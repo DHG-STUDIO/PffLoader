@@ -9,6 +9,7 @@ Item (完成) <br />
 Block (一部開発中) <br />
 BlockItem (完成) <br />
 ItemGroup (完成) <br />
+BlockEntity (開発中) <br />
 
 ## MODローダー
 [FabricMC](https://fabricmc.net/)
