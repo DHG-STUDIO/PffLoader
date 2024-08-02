@@ -79,7 +79,6 @@ https://github.com/Ptkiuo/PffLoader-SampleCode
 This library is a library that can build mods for multiple versions created only with FabricAPI. <br />
 Currently, it is under development, so there may be specification changes or bugs. <br />
 The specifications may change drastically due to updates to Minecraft and other various version support, etc. <br />
-Item (Completed) <br />
 <br />
 
 ## MOD Loader
