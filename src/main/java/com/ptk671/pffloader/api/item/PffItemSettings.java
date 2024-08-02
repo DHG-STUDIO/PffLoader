@@ -1,14 +1,13 @@
 package com.ptk671.pffloader.api.item;
 
 import com.ptk671.pffloader.api.itemgroup.PffItemAddCreativeTab_1_20;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Rarity;
 
 public class PffItemSettings {
-    private FabricItemSettings settings = new FabricItemSettings();
+    private Item.Settings settings = new Item.Settings();
 
     public PffItemSettings maxCount(int maxcount)
     {
@@ -65,7 +64,7 @@ public class PffItemSettings {
         return this;
     }
 
-    public FabricItemSettings build() {
+    public Item.Settings build() {
         return settings;
     }
 
