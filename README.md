@@ -5,6 +5,11 @@
 現在は開発中であるため仕様が変わったり、不具合があるかもしれません。<br />
 ※Minecraftのアップデート等、様々なバージョンの対応等により大幅に仕様が変更される可能性もあります <br />
 
+Item (完成) <br />
+Block (一部開発中) <br />
+BlockItem (完成) <br />
+ItemGroup (完成) <br />
+
 ## MODローダー
 [FabricMC](https://fabricmc.net/)
 
