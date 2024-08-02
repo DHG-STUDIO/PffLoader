@@ -38,8 +38,8 @@ https://github.com/Ptkiuo/PffLoader-SampleCode
 
 ### 対応バージョン
       1.21
-      23w31a ~       23w35a
-      1.20.x
+      23w31a ~ 23w35a
+      1.20x
       1.20-rc1
       1.20-pre1 ~ pre7
       23w18a
