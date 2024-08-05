@@ -43,7 +43,7 @@ public class PffItemSettings {
     }
 
     //=>1.19.2
-    public PffItemSettings group(RegistryKey<ItemGroup> itemGroup)
+    public PffItemSettings group(ItemGroup itemGroup)
     {
 
         return this;

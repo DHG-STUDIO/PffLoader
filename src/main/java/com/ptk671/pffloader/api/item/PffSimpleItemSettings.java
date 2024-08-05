@@ -12,7 +12,7 @@ public class PffSimpleItemSettings {
         return pffItem;
     }
 
-    public static PffItem Setting  (int maxCount, RegistryKey<ItemGroup> itemGroup) {
+    public static PffItem Setting  (int maxCount, ItemGroup itemGroup) {
         PffItem pffItem = new PffItem(new PffItemSettings()
                 .maxCount(maxCount)
                 .group(itemGroup));
