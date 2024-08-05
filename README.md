@@ -17,7 +17,7 @@
 repositories {
     maven {
         url = "https://maven.ptk671.com/"
-      // サーバー2 url = "https://ptkiuo.github.io/maven/"
+        // サーバー2 url = "https://ptkiuo.github.io/maven/"
     }
 }
 
@@ -25,7 +25,7 @@ dependencies {
     modImplementation "com.ptk671:pffloader-MinecrftVersion:${rootProject.pffloader_version}
 }
 ```
-「MinecrftVersion」という所に対象のminecraftのバージョンを記入してください <br />
+「MinecrftVersion」という所に対象のminecraft対象のマインクラフトのバージョンを入力してください <br />
 https://maven.ptk671.com/com/ptk671/ <br />
 
 `gradle.properties`
@@ -91,14 +91,14 @@ The specifications may change drastically due to updates to Minecraft and other 
 
 ```groovy
 repositories {
-maven {
-url = "https://maven.ptk671.com/"
+    maven {
+        url = "https://maven.ptk671.com/"
 // サーバー2 url = "https://ptkiuo.github.io/maven/"
-}
+    }
 }
 
 dependencies {
-modImplementation "com.ptk671:pffloader-MinecrftVersion:${rootProject.pffloader_version}
+    modImplementation "com.ptk671:pffloader-MinecrftVersion:${rootProject.pffloader_version}
 }
 ```
 Fill in the "MinecraftVersion" field with the target minecraft version. <br />
