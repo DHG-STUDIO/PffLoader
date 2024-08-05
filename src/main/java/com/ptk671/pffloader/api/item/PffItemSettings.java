@@ -4,7 +4,6 @@ import com.ptk671.pffloader.api.itemgroup.PffItemAddCreativeTab_1_20;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Rarity;
 
 public class PffItemSettings {
@@ -43,7 +42,7 @@ public class PffItemSettings {
     }
 
     //=>1.19.2
-    public PffItemSettings group(RegistryKey<ItemGroup> itemGroup)
+    public PffItemSettings group(ItemGroup itemGroup)
     {
 
         return this;
