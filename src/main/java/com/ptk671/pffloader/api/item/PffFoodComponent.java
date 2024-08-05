@@ -29,7 +29,6 @@ public class PffFoodComponent {
     }
 
     public PffFoodComponent meat(){
-        //Below 1.21
         this.meat = true;
         return this;
     }
@@ -44,18 +43,54 @@ public class PffFoodComponent {
         return this;
     }
 
-    public PffFoodComponent statusEffects(List<Pair<StatusEffectInstance, Float>> statusEffects){
+   /* public PffFoodComponent statusEffects(List<Pair<StatusEffectInstance, Float>> statusEffects){
         this.statusEffects = statusEffects;
         return this;
     }
+*/
 
     public FoodComponent build() {
         FoodComponent.Builder foodComponent = new FoodComponent.Builder();
-        if(hunger_boolean)foodComponent.nutrition(hunger);
+        if(hunger_boolean)foodComponent.nutrition(hunger); foodComponent.nutrition(hunger);
         if(saturationModifier_boolean) foodComponent.saturationModifier(saturationModifier);
         if(snack) foodComponent.snack();
         if(statusEffects != null ) foodComponent.saturationModifier(saturationModifier);
         if(alwaysEdible) foodComponent.alwaysEdible();
         return foodComponent.build();
+    }
+
+    public int getHunger()
+    {
+        return hunger;
+    }
+
+    public Boolean getHungerBoolen()
+    {
+        return hunger_boolean;
+    }
+
+    public float getSaturationModifier ()
+    {
+        return saturationModifier;
+    }
+
+    public boolean getSaturationModifier_boolean ()
+    {
+        return saturationModifier_boolean;
+    }
+
+    public boolean getMeat ()
+    {
+        return meat;
+    }
+
+    public boolean getHunger_boolean ()
+    {
+        return alwaysEdible;
+    }
+
+    public boolean getSnack ()
+    {
+        return snack;
     }
 }

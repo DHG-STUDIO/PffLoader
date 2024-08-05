@@ -1,6 +1,7 @@
 package com.ptk671.pffloader.api.item;
 
 import com.ptk671.pffloader.api.itemgroup.PffItemAddCreativeTab_1_20;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.RegistryKey;
@@ -8,6 +9,8 @@ import net.minecraft.util.Rarity;
 
 public class PffItemSettings {
     private Item.Settings settings = new Item.Settings();
+
+
 
     public PffItemSettings maxCount(int maxcount)
     {
@@ -64,8 +67,16 @@ public class PffItemSettings {
         return this;
     }
 
+    public PffItemSettings food(FoodComponent foodComponent)
+    {
+        settings.food(foodComponent);
+        return this;
+    }
+
     public Item.Settings build() {
         return settings;
     }
+
+
 
 }
