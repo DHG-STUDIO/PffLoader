@@ -1,7 +1,6 @@
 package com.ptk671.pffloader.api.item;
 
 import net.minecraft.item.ItemGroup;
-import net.minecraft.registry.RegistryKey;
 
 public class PffSimpleItemSettings {
 
