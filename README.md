@@ -1,71 +1,148 @@
-# Fabric Example Mod
+# Pffloader
+# Japanse
 
-- [Quick start guide](#quick-start-guide)
-  - [Introduction to the folder structure](#introduction-to-the-folder-structure)
-  - [Creating your mod](#creating-your-mod)
-  - [Useful gradle commands](#useful-gradle-commands)
-- [More info](#more-info)
-- [License](#license)
+このライブラリーはFabricAPIのみで作成された複数のバージョンに対応したmodをビルドできるライブラリーです。<br />
+現在は開発中であるため仕様が変わったり、不具合があるかもしれません。<br />
+※Minecraftのアップデート等、様々なバージョンの対応等により大幅に仕様が変更される可能性もあります <br />
 
-## Quick start guide
+## MODローダー
+[FabricMC](https://fabricmc.net/)
 
-### Introduction to the folder structure
+### 前提mod
+[FabricAPI](https://modrinth.com/mod/fabric-api)
 
-**Build files:**
+### 使い方
+`build.gradle`
+```groovy
+repositories {
+    maven {
+        url = "https://maven.ptk671.com/"
+      // サーバー2 url = "https://ptkiuo.github.io/maven/"
+    }
+}
 
-| File                | Description                                              |
-| ------------------- | -------------------------------------------------------- |
-| `build.gradle`      | Configures the compilation process.                      |
-| `gradle.properties` | Contains properties for Minecraft, fabric, and your mod. |
-| `settings.gradle`   | Configures the plugin repositories.                      |
+dependencies {
+    modImplementation "com.ptk671:pffloader-MinecrftVersion:${rootProject.pffloader_version}
+}
+```
+「MinecrftVersion」という所に対象のminecraftのバージョンを記入してください <br />
+https://maven.ptk671.com/com/ptk671/ <br />
 
-**Fabric files:**
-
-These files are located at `src/main/resources`.
-
-| File                    | Description                              | Additional information                                                                                                |
-| ----------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `fabric.mod.json`       | Contains metadata about your mod.        | [wiki:fabric_mod_json_spec](https://fabricmc.net/wiki/documentation:fabric_mod_json_spec)                             |
-| `modid.mixins.json`     | Contains a list of all your mixin files. | [wiki:mixin_registration](https://fabricmc.net/wiki/tutorial:mixin_registration)                                      |
-| `assets/modid/icon.png` | The icon of your mod.                    | [wiki:fabric_mod_json_spec#icon](https://fabricmc.net/wiki/documentation:fabric_mod_json_spec?s[]=icon#custom_fields) |
-
-
-### Creating your mod
-
-First of you must replace all occurrences of `modid` with the id of your mod.
-
-If your mod doesn't use mixins you can safely remove the mixin entry in your `fabric.mod.json` as well as delete any `*.mixin.json` files.
-
-This template has the legacy fabric api included in it's build script, more info about the api can be found at it's [github repo](https://github.com/Legacy-Fabric/fabric).
-If you know what you are doing you can also safely remove the api from the build script as it isn't required.
-
-### Useful gradle commands
-
-```sh
-# Compile your mod
-./gradlew build
-
-# Remove old build files
-./gradlew clean
-
-# Generate Minecraft sources
-./gradlew genSources
-
-# Launch a modded Minecraft client
-./gradlew runClient
-
-# Kill gradle if it's doing stupid things
-./gradlew --stop
+`gradle.properties`
+```properties
+pffloader_version=x.x.x
 ```
 
-## More info
+Samplemod <br />
+https://github.com/Ptkiuo/PffLoader-SampleCode
 
-Additional tutorials and tips can be found in the [wiki](https://github.com/Legacy-Fabric/fabric-example-mod/wiki).
+### 対応バージョン
+      1.21
+      23w31a ~ 23w35a
+      1.20x
+      1.20-rc1
+      1.20-pre1 ~ pre7
+      23w18a
+      22w24a
+      1.19x
+      22w13oneblockatatime
+      22w03a ~ 22w19a
+      1.18.x
+      21w37a ~ 21w44a
+      1.17.x
+      1.16.5
+      1.16.5-rc1
+      20w45a ~ 20w51a
+      1.16.4
+      1.16.4-rc1
+      1.16.4-pre2
+      1.16.4-pre1
+      1.16.3
+      1.16.3-rc1
+      1.16_combat-1 ~ combat-6
+      1.16.2
+      1.15x
+      19w45a ~ 19w46b
+      1.14_combat-3
+      19w34a ~ 19w44a
+      1.14_combat-0
+      1.14.4
+※一部のスナップショットでは使用できない可能性もあります。
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
-For more detailed setup instructions please see the [fabric wiki](https://fabricmc.net/wiki/tutorial:setup).
+# English
+This library is a library that can build mods for multiple versions created only with FabricAPI. <br />
+Currently, it is under development, so there may be specification changes or bugs. <br />
+The specifications may change drastically due to updates to Minecraft and other various version support, etc. <br />
+<br />
 
-If you are new to fabric or Minecraft modding in general then [this wiki page](https://fabricmc.net/wiki/tutorial:primer) may help you.
+## MOD Loader
+[FabricMC](https://fabricmc.net/)
 
-## License
+### Required mods
+[FabricAPI](https://modrinth.com/mod/fabric-api)
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+### How to use
+
+```groovy
+repositories {
+maven {
+url = "https://maven.ptk671.com/"
+// サーバー2 url = "https://ptkiuo.github.io/maven/"
+}
+}
+
+dependencies {
+modImplementation "com.ptk671:pffloader-MinecrftVersion:${rootProject.pffloader_version}
+}
+```
+Fill in the "MinecraftVersion" field with the target minecraft version. <br />
+https://maven.ptk671.com/com/ptk671/ <br />
+
+`gradle.properties`
+```properties
+pffloader_version=x.x.x
+```
+
+Samplemod <br />
+https://github.com/Ptkiuo/PffLoader-SampleCode
+
+
+### Supported Versions
+      1.21
+      23w31a ~ 23w35a
+      1.20x
+      1.20-rc1
+      1.20-pre1 ~ pre7
+      23w18a
+      22w24a
+      1.19x
+      22w13oneblockatatime
+      22w03a ~ 22w19a
+      1.18.x
+      21w37a ~ 21w44a
+      1.17.x
+      1.16.5
+      1.16.5-rc1
+      20w45a ~ 20w51a
+      1.16.4
+      1.16.4-rc1
+      1.16.4-pre2
+      1.16.4-pre1
+      1.16.3
+      1.16.3-rc1
+      1.16_combat-1 ~ combat-6
+      1.16.2
+      1.15x
+      19w45a ~ 19w46b
+      1.14_combat-3
+      19w34a ~ 19w44a
+      1.14_combat-0
+      1.14.4
+
+May not be available for some snapshots.
