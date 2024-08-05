@@ -6,8 +6,8 @@ public class PffSimpleItemSettings {
 
 
     public static PffItem Setting  (int maxCount) {
-        PffItem pffItem = new PffItem(new PffItemSettings()
-                .maxCount(maxCount));
+    PffItem pffItem = new PffItem(new PffItemSettings()
+        .maxCount(maxCount));
         return pffItem;
     }
 
