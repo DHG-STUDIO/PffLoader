@@ -25,7 +25,7 @@ dependencies {
     modImplementation "com.ptk671:pffloader-MinecrftVersion:${rootProject.pffloader_version}
 }
 ```
-「MinecrftVersion」という所に対象のminecraftのバージョンを記入してください <br />
+「MinecrftVersion」という所に対象のminecraft対象のマインクラフトのバージョンを入力してください <br />
 https://maven.ptk671.com/com/ptk671/ <br />
 
 `gradle.properties`
