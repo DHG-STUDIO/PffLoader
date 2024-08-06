@@ -25,5 +25,8 @@
     "main": [
       "com.ptk671.pffloader.PffLoader"
     ]
-  }
+  },
+  "mixins": [
+    "pffloader.mixins.json"
+  ]
 }

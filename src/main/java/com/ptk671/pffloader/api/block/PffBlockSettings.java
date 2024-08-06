@@ -9,19 +9,28 @@ import java.util.function.ToIntFunction;
 
 public class PffBlockSettings {
 
-
+private boolean CopySetting = false;
+private Block dropsLike;
+private boolean breakInstantly = false;
+private boolean dropsNothing = false;
+private boolean dynamicBounds = false;
+private boolean noBlockBreakParticles = false;
+private float hardness = 0;
+private float resistance = 0;
+private BlockSoundGroup blockSoundGroup;
+private float slipperiness = 0;
 
     public PffBlockSettings() {
-        this.settings = FabricBlockSettings.of(Material.STONE);
+
     }
 
     public PffBlockSettings copyOf(PffBlock pffBlock) {
-        FabricBlockSettings.copy(pffBlock);
+
+       this.CopySetting = true;
         return this;
     }
 
     public PffBlockSettings copyOf(PffBlockSettings pffBlockSetting) {
-        FabricBlockSettings.copyOf(pffBlockSetting.build());
         return this;
     }
 
@@ -57,36 +66,37 @@ public class PffBlockSettings {
     }
 */
     public PffBlockSettings dropsLike(Block source) {
-        settings.dropsLike(source);
+        dropsLike = source;
         return this;
     }
 
     public PffBlockSettings breakInstantly() {
-        settings.breakInstantly();
+        breakInstantly = true;
         return this;
     }
 
     public PffBlockSettings dropsNothing() {
-        settings.dropsNothing();
+        this.dropsNothing = true;
         return this;
     }
 
     public PffBlockSettings dynamicBounds() {
-        settings.dynamicBounds();
+        this.dynamicBounds = true;
         return this;
     }
 
     public PffBlockSettings noBlockBreakParticles() {
+        this.noBlockBreakParticles = true;
         return this;
     }
 
     public PffBlockSettings requiresTool() {
-        //not support
+
         return this;
     }
 
     public PffBlockSettings noCollision() {
-        settings.noCollision();
+
         return this;
     }
 
@@ -96,23 +106,25 @@ public class PffBlockSettings {
     }
 
     public PffBlockSettings strength(Float strength) {
-        settings.strength(strength);
+        this.resistance = strength;
+        this.hardness = strength;
         return this;
     }
 
     public PffBlockSettings strength(Float hardness, Float resistance) {
-        settings.strength(hardness,resistance);
+        this.hardness = hardness;
+        this.resistance = resistance;
         return this;
     }
 
 
     public PffBlockSettings ticksRandomly() {
-        settings.ticksRandomly();
+        //settings.ticksRandomly();
         return this;
     }
 
     public PffBlockSettings sounds(BlockSoundGroup blockSoundGroup) {
-        settings.sounds(blockSoundGroup);
+        this.blockSoundGroup = blockSoundGroup;
         return this;
     }
 
@@ -127,7 +139,7 @@ public class PffBlockSettings {
     }
 
     public PffBlockSettings slipperiness(float slipperiness) {
-        settings.slipperiness(slipperiness);
+        this.slipperiness = slipperiness;
         return this;
     }
 
@@ -148,9 +160,13 @@ public class PffBlockSettings {
         return this;
     }
 */
-    public FabricBlockSettings build() {
-        return settings;
+    public PffBlock build() {
 
 
+        PffBlock build = new PffBlock(Material.STONE);
+        if (this.hardness != 0) build.setStrength(hardness);
+        if (this.resistance != 0 ) build.setResistance(resistance);
+        if (this.blockSoundGroup != null) build.setBlockSoundGroup(blockSoundGroup);
+        return build;
     }
 }
