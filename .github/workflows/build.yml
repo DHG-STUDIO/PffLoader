@@ -11,11 +11,11 @@ jobs:
     strategy:
       matrix:
         java: [ "17" ] # Latest version
-        
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.1
-      - uses: gradle/wrapper-validation-action@v1.1.0
+      - uses: gradle/actions/wrapper-validation@v3.5.0
       - name: Setup Java JDK
         uses: actions/setup-java@v4.0.0
         with:
@@ -27,6 +27,6 @@ jobs:
         run: ./gradlew build
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.0
-        with: 
-          name: modid
+        with:
+          name: PffLoader-1.21-test-build
           path: build/libs/*.jar
