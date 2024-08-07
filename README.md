@@ -6,10 +6,11 @@
 ※Minecraftのアップデート等、様々なバージョンの対応等により大幅に仕様が変更される可能性もあります <br />
 
 ## MODローダー
-[FabricMC](https://fabricmc.net/)
-
+[FabricMC](https://fabricmc.net/) <br />
+[LegacyFabric(1.12.2 以前)](https://legacyfabric.net/)
 ### 前提mod
-[FabricAPI](https://modrinth.com/mod/fabric-api)
+[FabricAPI](https://modrinth.com/mod/fabric-api) <br />
+[LegacyFabricApi(1.12.2 以前)](https://modrinth.com/mod/legacy-fabric-api/)
 
 ### 使い方
 `build.gradle`
@@ -67,6 +68,7 @@ https://github.com/Ptkiuo/PffLoader-SampleCode
       19w34a ~ 19w44a
       1.14_combat-0
       1.14.4
+      1.12.2
 ※一部のスナップショットでは使用できない可能性もあります。
 <br />
 <br />
@@ -82,10 +84,12 @@ The specifications may change drastically due to updates to Minecraft and other 
 <br />
 
 ## MOD Loader
-[FabricMC](https://fabricmc.net/)
+[FabricMC](https://fabricmc.net/) <br />
+[LegacyFabric(1.12.2 before)](https://legacyfabric.net/)
 
 ### Required mods
-[FabricAPI](https://modrinth.com/mod/fabric-api)
+[FabricAPI](https://modrinth.com/mod/fabric-api) <br />
+[LegacyFabricApi(1.12.2 before)](https://modrinth.com/mod/legacy-fabric-api/)
 
 ### How to use
 
@@ -144,5 +148,5 @@ https://github.com/Ptkiuo/PffLoader-SampleCode
       19w34a ~ 19w44a
       1.14_combat-0
       1.14.4
-
+      1.12.2
 May not be available for some snapshots.
