@@ -1,19 +1,19 @@
 package com.ptk671.pffloader.api.item;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.itemgroup.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.CommonI18n;
 
 public class PffItem extends Item {
-
-    public ItemGroup getGroup;
-
     public PffItem(PffItemSettings settings) {
-        new Item();
-        settings.build();
+    }
+
+    @Override
+    public String getDisplayName(ItemStack stack) {
+        return CommonI18n.translate(stack.getTranslationKey().intern());
     }
 
     public PffItem(){
 
     }
-
 }

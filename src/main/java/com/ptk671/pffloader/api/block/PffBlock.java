@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class PffBlock extends  Block{
+    private String translationKey;
     public PffBlock(Material material, MaterialColor materialColor) {
         super(material, materialColor);
     }
@@ -93,5 +94,15 @@ public class PffBlock extends  Block{
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
+
+    public Block setTranslationKey(String key) {
+        this.translationKey = key;
+        return this;
+    }
+
+    public String getTranslationKey() {
+        return  this.translationKey;
+    }
+
 }
 

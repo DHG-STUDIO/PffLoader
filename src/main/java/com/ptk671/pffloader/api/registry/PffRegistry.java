@@ -22,6 +22,7 @@ public class PffRegistry {
     {
         registerItem(pffItem, identifier);
     }
+
     public static void PffItemRegistry(Identifier identifier, PffBlockItem pffItem)
     {
         registerItem(pffItem, identifier);
