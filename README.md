@@ -74,14 +74,7 @@ pffloader_version=x.x.x
 ```
 
 Samplemod <br />
-https://github.com/Ptkiuo/PffLoader-SampleCode
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+https://github.com/Ptkiuo/PffLoader-SampleCode <br />
 # NORSK
 Dette biblioteket er et bibliotek som kan bygge modifikasjoner for flere versjoner som kun er opprettet med FabricAPI. <br />
 Det er under utvikling, så det kan forekomme endringer i spesifikasjonene eller feil. <br />
