@@ -30,10 +30,7 @@
     "fabricloader": "*",
     "fabric": "*",
     "minecraft": [
-      "1.19.4",
-      "23w12a",
-      "23w13a",
-      "23w13a_or_b"
+      "1.19.4"
     ]
   }
 }
