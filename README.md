@@ -88,5 +88,5 @@ https://github.com/Ptkiuo/PffLoader-SampleCode <br />
 1.16.2 <br />
 1.15x <br />
 1.14.4 <br />
-1.12.2 <br />
-1.8.9 <br />
+1.12x <br />
+1.8x <br />
