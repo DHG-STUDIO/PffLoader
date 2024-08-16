@@ -1,71 +1,92 @@
-# Fabric Example Mod
+# Pffloader
+# Japanse
 
-- [Quick start guide](#quick-start-guide)
-  - [Introduction to the folder structure](#introduction-to-the-folder-structure)
-  - [Creating your mod](#creating-your-mod)
-  - [Useful gradle commands](#useful-gradle-commands)
-- [More info](#more-info)
-- [License](#license)
+このライブラリーはFabricAPIのみで作成された複数のバージョンに対応したmodをビルドできるライブラリーです。<br />
+現在は開発中であるため仕様が変わったり、不具合があるかもしれません。<br />
+※Minecraftのアップデート等、様々なバージョンの対応等により大幅に仕様が変更される可能性もあります <br />
 
-## Quick start guide
+## MODローダー
+[FabricMC](https://fabricmc.net/) <br />
+[LegacyFabric(1.12.2 以前)](https://legacyfabric.net/)
+### 前提mod
+[FabricAPI](https://modrinth.com/mod/fabric-api) <br />
+[LegacyFabricApi(1.12.2 以前)](https://modrinth.com/mod/legacy-fabric-api/)
 
-### Introduction to the folder structure
+### 使い方
+`build.gradle`
+```groovy
+repositories {
+    maven {
+        url = "https://maven.ptk671.com/"
+        // サーバー2 url = "https://ptkiuo.github.io/maven/"
+    }
+}
 
-**Build files:**
+dependencies {
+    modImplementation "com.ptk671:pffloader-MinecrftVersion:${rootProject.pffloader_version}
+}
+```
+「MinecrftVersion」という所に対象のminecraft対象のマインクラフトのバージョンを入力してください <br />
+https://maven.ptk671.com/com/ptk671/ <br />
 
-| File                | Description                                              |
-| ------------------- | -------------------------------------------------------- |
-| `build.gradle`      | Configures the compilation process.                      |
-| `gradle.properties` | Contains properties for Minecraft, fabric, and your mod. |
-| `settings.gradle`   | Configures the plugin repositories.                      |
-
-**Fabric files:**
-
-These files are located at `src/main/resources`.
-
-| File                    | Description                              | Additional information                                                                                                |
-| ----------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `fabric.mod.json`       | Contains metadata about your mod.        | [wiki:fabric_mod_json_spec](https://fabricmc.net/wiki/documentation:fabric_mod_json_spec)                             |
-| `modid.mixins.json`     | Contains a list of all your mixin files. | [wiki:mixin_registration](https://fabricmc.net/wiki/tutorial:mixin_registration)                                      |
-| `assets/modid/icon.png` | The icon of your mod.                    | [wiki:fabric_mod_json_spec#icon](https://fabricmc.net/wiki/documentation:fabric_mod_json_spec?s[]=icon#custom_fields) |
-
-
-### Creating your mod
-
-First of you must replace all occurrences of `modid` with the id of your mod.
-
-If your mod doesn't use mixins you can safely remove the mixin entry in your `fabric.mod.json` as well as delete any `*.mixin.json` files.
-
-This template has the legacy fabric api included in it's build script, more info about the api can be found at it's [github repo](https://github.com/Legacy-Fabric/fabric).
-If you know what you are doing you can also safely remove the api from the build script as it isn't required.
-
-### Useful gradle commands
-
-```sh
-# Compile your mod
-./gradlew build
-
-# Remove old build files
-./gradlew clean
-
-# Generate Minecraft sources
-./gradlew genSources
-
-# Launch a modded Minecraft client
-./gradlew runClient
-
-# Kill gradle if it's doing stupid things
-./gradlew --stop
+`gradle.properties`
+```properties
+pffloader_version=x.x.x
 ```
 
-## More info
+Samplemod <br />
+https://github.com/Ptkiuo/PffLoader-SampleCode
 
-Additional tutorials and tips can be found in the [wiki](https://github.com/Legacy-Fabric/fabric-example-mod/wiki).
+# English
+This library is a library that can build mods for multiple versions created only with FabricAPI. <br />
+Currently, it is under development, so there may be specification changes or bugs. <br />
+The specifications may change drastically due to updates to Minecraft and other various version support, etc. <br />
+<br />
 
-For more detailed setup instructions please see the [fabric wiki](https://fabricmc.net/wiki/tutorial:setup).
+## MOD Loader
+[FabricMC](https://fabricmc.net/) <br />
+[LegacyFabric(1.12.2 before)](https://legacyfabric.net/)
 
-If you are new to fabric or Minecraft modding in general then [this wiki page](https://fabricmc.net/wiki/tutorial:primer) may help you.
+### Required mods
+[FabricAPI](https://modrinth.com/mod/fabric-api) <br />
+[LegacyFabricApi(1.12.2 before)](https://modrinth.com/mod/legacy-fabric-api/)
 
-## License
+### How to use
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+```groovy
+repositories {
+    maven {
+        url = "https://maven.ptk671.com/"
+// Server2 url = "https://ptkiuo.github.io/maven/"
+    }
+}
+
+dependencies {
+    modImplementation "com.ptk671:pffloader-MinecrftVersion:${rootProject.pffloader_version}
+}
+```
+Fill in the "MinecraftVersion" field with the target minecraft version. <br />
+https://maven.ptk671.com/com/ptk671/ <br />
+
+`gradle.properties`
+```properties
+pffloader_version=x.x.x
+```
+
+Samplemod <br />
+https://github.com/Ptkiuo/PffLoader-SampleCode <br />
+# Supported Versions
+1.21.1 <br />
+1.21 <br />
+1.20x <br />
+1.19x <br />
+1.18x <br />
+1.17x <br />
+1.16.5 <br />
+1.16.4 <br />
+1.16.3 <br />
+1.16.2 <br />
+1.15x <br />
+1.14.4 <br />
+1.12x <br />
+1.8x <br />
