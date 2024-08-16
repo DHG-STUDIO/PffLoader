@@ -75,75 +75,17 @@ pffloader_version=x.x.x
 
 Samplemod <br />
 https://github.com/Ptkiuo/PffLoader-SampleCode <br />
-# NORSK
-Dette biblioteket er et bibliotek som kan bygge modifikasjoner for flere versjoner som kun er opprettet med FabricAPI. <br />
-Det er under utvikling, så det kan forekomme endringer i spesifikasjonene eller feil. <br />
-Spesifikasjonene kan endres drastisk på grunn av oppdateringer av Minecraft og annen støtte for ulike versjoner osv. <br />
-<br />
-
-## MOD Loader
-[FabricMC](https://fabricmc.net/) <br />
-[LegacyFabric(1.12.2 before)](https://legacyfabric.net/)
-
-### Required mods
-[FabricAPI](https://modrinth.com/mod/fabric-api) <br />
-[LegacyFabricApi(1.12.2 before)](https://modrinth.com/mod/legacy-fabric-api/)
-
-### How to use
-
-```groovy
-repositories {
-    maven {
-        url = "https://maven.ptk671.com/"
-// Server2 url = "https://ptkiuo.github.io/maven/"
-    }
-}
-```
-Fill in the "MinecraftVersion" field with the target minecraft version. <br />
-https://maven.ptk671.com/com/ptk671/ <br />
-
-`gradle.properties`
-```properties
-pffloader_version=x.x.x
-```
-
-Samplemod <br />
-https://github.com/Ptkiuo/PffLoader-SampleCode
-<br />
-<br />
-<br />
-<br />
-<br />
 # Supported Versions
-      1.21
-      23w31a ~ 23w35a
-      1.20x
-      1.20-rc1
-      1.20-pre1 ~ pre7
-      23w18a
-      22w24a
-      1.19x
-      22w13oneblockatatime
-      22w03a ~ 22w19a
-      1.18.x
-      21w37a ~ 21w44a
-      1.17.x
-      1.16.5
-      1.16.5-rc1
-      20w45a ~ 20w51a
-      1.16.4
-      1.16.4-rc1
-      1.16.4-pre2
-      1.16.4-pre1
-      1.16.3
-      1.16.3-rc1
-      1.16_combat-1 ~ combat-6
-      1.16.2
-      1.15x
-      19w45a ~ 19w46b
-      1.14_combat-3
-      19w34a ~ 19w44a
-      1.14_combat-0
-      1.14.4
-      1.12.2
-May not be available for some snapshots.
+1.21.1 <br />
+1.21 <br />
+1.20x <br />
+1.19x <br />
+1.18x <br />
+1.17x <br />
+1.16.5 <br />
+1.16.4 <br />
+1.16.3 <br />
+1.15x <br />
+1.14.4 <br />
+1.12.2 <br />
+1.8.9 <br />
