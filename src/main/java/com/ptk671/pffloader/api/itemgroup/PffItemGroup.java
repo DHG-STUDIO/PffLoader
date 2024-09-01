@@ -2,6 +2,8 @@ package com.ptk671.pffloader.api.itemgroup;
 
 import com.ptk671.pffloader.api.util.PffText;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -60,5 +62,17 @@ public class PffItemGroup {
 
     }
 
+    public Item getTabItem (int i)
+    {
+        return entries2.get(i).getItem();
+    }
+
+    public Item getIcon ()
+    {
+        Item item;
+        item = BlockItem.fromBlock(Blocks.AIR);
+        if(iconSupplier != null) item = iconSupplier.getItem();
+        return item;
+    }
 
 }

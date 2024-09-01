@@ -11,30 +11,32 @@ import net.minecraft.util.Identifier;
 
 public class PffRegistry {
 
-    public static void PffItemRegistry(Identifier identifier, PffItem pffItem)
+    public static void registerItem(Identifier identifier, PffItem pffItem)
     {
         Registry.register(Registries.ITEM, identifier, pffItem);
     }
-    public static void PffItemRegistry(Identifier identifier, PffBlockItem pffItem)
+
+    public static void registerItem(Identifier identifier, PffBlockItem pffItem)
     {
         Registry.register(Registries.ITEM, identifier, pffItem);
     }
-    public static void PffBlockRegistry(Identifier identifier, PffBlock pffBlock)
+
+    public static void registerBlock(Identifier identifier, PffBlock pffBlock)
     {
         Registry.register(Registries.BLOCK, identifier, pffBlock);
     }
 
-    public static void PffItemGroupRegistry(Identifier identifier, PffItemGroup itemGroup)
+    public static void registerItemGroup(Identifier identifier,PffItemGroup itemGroup)
     {
         itemGroup.build();
     }
 
-    public static void PffItemGroupRegistry(PffItemGroup itemGroup)
+    public static void registerItemGroup(PffItemGroup itemGroup)
     {
         itemGroup.build();
     }
 
-    public static void PffItemGroupRegistry(Identifier identifier, ItemGroup itemGroup)
+    public static void registerItemGroup(Identifier identifier, ItemGroup itemGroup)
     {
 
     }
