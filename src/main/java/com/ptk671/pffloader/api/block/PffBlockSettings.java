@@ -15,6 +15,7 @@ private boolean breakInstantly = false;
 private boolean dropsNothing = false;
 private boolean dynamicBounds = false;
 private boolean noBlockBreakParticles = false;
+private boolean requiresTool = false;
 private float hardness = 0;
 private float resistance = 0;
 private BlockSoundGroup blockSoundGroup;
@@ -91,7 +92,7 @@ private float slipperiness = 0;
     }
 
     public PffBlockSettings requiresTool() {
-
+        requiresTool = true;
         return this;
     }
 
@@ -167,6 +168,7 @@ private float slipperiness = 0;
         if (this.hardness != 0) build.setStrength(hardness);
         if (this.resistance != 0 ) build.setResistance(resistance);
         if (this.blockSoundGroup != null) build.setBlockSoundGroup(blockSoundGroup);
+        if (this.requiresTool) build.requiresSilkTouch();
         return build;
     }
 }

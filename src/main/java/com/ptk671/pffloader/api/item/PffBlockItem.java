@@ -15,6 +15,4 @@ public class PffBlockItem extends BlockItem {
     public String getDisplayName(ItemStack stack) {
         return CommonI18n.translate(  "block." + stack.getTranslationKey().intern());
     }
-
-
 }

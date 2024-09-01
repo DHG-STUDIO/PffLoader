@@ -5,7 +5,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.CommonI18n;
 
 public class PffItem extends Item {
+    @Deprecated
     public PffItem(PffItemSettings settings) {
+
     }
 
     @Override
@@ -14,6 +16,5 @@ public class PffItem extends Item {
     }
 
     public PffItem(){
-
     }
 }

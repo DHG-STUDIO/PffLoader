@@ -2,6 +2,8 @@ package com.ptk671.pffloader.api.itemgroup;
 
 import net.legacyfabric.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.legacyfabric.fabric.api.util.Identifier;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.itemgroup.ItemGroup;
@@ -54,6 +56,19 @@ public class PffItemGroup {
         if(iconSupplier != null) itemGroup.icon(() -> new ItemStack(iconSupplier.getItem()).getItem());
         if(stacks2 != null) itemGroup.appendItems(stacks -> {stacks.addAll(stacks2);});
         return itemGroup.build();
+    }
+
+    public Item getTabItem (int i)
+    {
+        return stacks2.get(i).getItem();
+    }
+
+    public Item getIcon ()
+    {
+         Item item2;
+         item2 = BlockItem.fromBlock(Blocks.AIR);
+        if(iconSupplier != null) item2 = iconSupplier.getItem();
+        return item2;
     }
 
 }

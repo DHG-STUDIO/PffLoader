@@ -7,15 +7,12 @@ import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 public class PffBlock extends  Block{
     private String translationKey;
+
     public PffBlock(Material material, MaterialColor materialColor) {
         super(material, materialColor);
     }
@@ -64,11 +61,6 @@ public class PffBlock extends  Block{
         return super.setTickRandomly(tickRandomly);
     }
 
-    @Nullable
-    @Override
-    public BlockHitResult method_11559(BlockPos blockPos, Vec3d vec3d, Vec3d vec3d2, Box box) {
-        return super.method_11559(blockPos, vec3d, vec3d2, box);
-    }
 
     @Override
     public boolean requiresSilkTouch() {
@@ -95,6 +87,7 @@ public class PffBlock extends  Block{
         return super.clone();
     }
 
+
     public Block setTranslationKey(String key) {
         this.translationKey = key;
         return this;
@@ -103,6 +96,5 @@ public class PffBlock extends  Block{
     public String getTranslationKey() {
         return  this.translationKey;
     }
-
 }
 
