@@ -8,19 +8,19 @@ public class CompatiblePffItemSetting {
     public static PffItem of(PffItemSettings pffItemSettings)
     {
         PffItem build = new PffItem(pffItemSettings);
-        return  build;
+        return build;
     }
 
     public static PffBlockItem of(PffBlock pffBlock, PffItemSettings pffItemSettings)
     {
         PffBlockItem build = new PffBlockItem(pffBlock,pffItemSettings);
-        return  build;
+        return build;
     }
 
     public static PffFoodItem ofFood(PffFoodComponent pffFoodComponent,PffItemSettings pffItemSettings)
     {
         PffFoodItem build = new PffFoodItem(pffItemSettings.food(pffFoodComponent));
-        return  build;
+        return build;
     }
 
 
