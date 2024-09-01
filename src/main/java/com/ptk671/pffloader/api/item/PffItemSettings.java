@@ -7,12 +7,15 @@ import net.minecraft.util.Rarity;
 
 
 public class PffItemSettings {
-  //  private Item settings = new Item();
     private int maxCount = 64;
     private ItemGroup itemGroup;
     private int MaxDamage;
     private boolean MaxDamage_boolen = false;
     private Item recipeRemainder;
+    private Rarity rarity;
+    private boolean fireproof_boolen = false;
+    private int maxDamageIfAbsent;
+    private boolean Fireproof_boolen = false;
 
     public PffItemSettings maxCount(int maxcount)
     {
@@ -20,17 +23,18 @@ public class PffItemSettings {
         return this;
     }
 
-    public PffItemSettings maxDamageIfAbsent(int maxDamage)
+    //>=1.14x
+    public PffItemSettings maxDamageIfAbsent(int maxDamageIfAbsent2)
     {
-        //settings.maxDamageIfAbsent(maxDamage);
+        maxDamageIfAbsent = maxDamageIfAbsent2;
         return this;
     }
 
+    //>=1.14x
     public PffItemSettings maxDamage(int maxDamage)
     {
         this.MaxDamage_boolen = true;
         this.MaxDamage = maxDamage;
-        //settings.maxDamage(maxDamage);
         return this;
     }
 
@@ -54,55 +58,48 @@ public class PffItemSettings {
         return this;
     }
 
+    //>=1.14x
     public PffItemSettings rarity(Rarity rarity)
     {
-        //settings.rarity(rarity);
+
+        this.rarity = rarity;
         return this;
     }
 
     public PffItemSettings fireproof()
     {
+        this.fireproof_boolen = true;
         return this;
     }
-   // public PffItemSettings food(PffFoodComponent pffFoodComponent)
-   // {
-        //settings.isFood(pffFoodComponent.build());
-      //  return this;
-  //  }
 
+    @Deprecated
+    public PffItemSettings food(PffFoodComponent pffFoodComponent)
+    {
+        return this;
+    }
 
     public PffItem build() {
     PffItem build = new PffItem();
        build.setMaxCount(maxCount);
-       build.setItemGroup(itemGroup);
-         if (MaxDamage_boolen) build.setMaxCount(MaxDamage);
          if (itemGroup != null) build.setItemGroup(itemGroup);
          if (recipeRemainder != null)  build.setRecipeRemainder(recipeRemainder);
-
         return build;
     }
 
     public PffBlockItem buildBlockItem(Block block) {
         PffBlockItem build = new PffBlockItem(block);
         build.setMaxCount(maxCount);
-        build.setItemGroup(itemGroup);
-        if (MaxDamage_boolen) build.setMaxCount(MaxDamage);
         if (itemGroup != null) build.setItemGroup(itemGroup);
         if (recipeRemainder != null)  build.setRecipeRemainder(recipeRemainder);
-
         return build;
     }
 
     public PffFoodItem buildFood(PffFoodComponent pffFoodComponent) {
-
         int Hunger = pffFoodComponent.getHunger();
         float SaturationModifier = pffFoodComponent.getSaturationModifier();
-        Boolean Meat = pffFoodComponent.getMeat();
-
+        boolean Meat = pffFoodComponent.getMeat();
         PffFoodItem build = new PffFoodItem(Hunger,SaturationModifier,Meat);
         build.setMaxCount(maxCount);
-        build.setItemGroup(itemGroup);
-        if (MaxDamage_boolen) build.setMaxCount(MaxDamage);
         if (itemGroup != null) build.setItemGroup(itemGroup);
         if (recipeRemainder != null)  build.setRecipeRemainder(recipeRemainder);
 

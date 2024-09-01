@@ -19,7 +19,7 @@ public class CompatiblePffItemSetting {
     public static PffFoodItem ofFood(PffFoodComponent pffFoodComponent,PffItemSettings pffItemSettings)
     {
         PffFoodItem build = pffItemSettings.buildFood(pffFoodComponent);
-        return  build;
+        return build;
     }
 
 
