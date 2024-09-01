@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -54,6 +55,20 @@ public class PffItemGroup {
         if(iconSupplier != null) itemGroup.icon(() -> new ItemStack(iconSupplier.getItem()));
         if(stacks2 != null) itemGroup.appendItems(stacks -> {stacks.addAll(stacks2);});
         return itemGroup.build();
+
+    }
+
+    public Item getTabItem (int i)
+    {
+        return stacks2.get(i).getItem();
+    }
+
+    public Item getIcon ()
+    {
+        Item item;
+        item = Items.AIR;
+        if(iconSupplier != null) item = iconSupplier.getItem();
+        return item;
     }
 
 }

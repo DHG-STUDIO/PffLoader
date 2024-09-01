@@ -43,11 +43,11 @@ public class PffFoodComponent {
         return this;
     }
 
-   /* public PffFoodComponent statusEffects(List<Pair<StatusEffectInstance, Float>> statusEffects){
+    public PffFoodComponent statusEffects(List<Pair<StatusEffectInstance, Float>> statusEffects){
         this.statusEffects = statusEffects;
         return this;
     }
-*/
+
 
     public FoodComponent build() {
         FoodComponent.Builder foodComponent = new FoodComponent.Builder();
@@ -65,7 +65,7 @@ public class PffFoodComponent {
         return hunger;
     }
 
-    public Boolean getHungerBoolen()
+    public boolean getHungerBoolen()
     {
         return hunger_boolean;
     }

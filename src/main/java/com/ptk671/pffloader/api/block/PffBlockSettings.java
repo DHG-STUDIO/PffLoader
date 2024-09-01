@@ -54,7 +54,7 @@ public class PffBlockSettings {
         }
 
         @Deprecated
-        public PffBlockSettings MapColor(Function<BlockState, MapColor> color) {
+        public PffBlockSettings MaterialColor(Function<BlockState, MaterialColor> color) {
             return this;
         }
     */
