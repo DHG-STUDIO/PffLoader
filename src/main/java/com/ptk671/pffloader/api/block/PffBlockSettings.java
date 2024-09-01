@@ -82,7 +82,7 @@ public class PffBlockSettings {
     }
 
     public PffBlockSettings requiresTool() {
-        //not support
+        settings.requiresTool();
         return this;
     }
 
