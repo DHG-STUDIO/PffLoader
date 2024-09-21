@@ -90,10 +90,10 @@ public class PffItemSettings {
     }
 
     public PffItem build() {
-    PffItem build = new PffItem();
-       build.setMaxCount(maxCount);
-         if (itemGroup != null) build.setItemGroup(itemGroup);
-         if (recipeRemainder != null)  build.setRecipeRemainder(recipeRemainder);
+        PffItem build = new PffItem(this);
+        build.setMaxCount(maxCount);
+        if (itemGroup != null) build.setItemGroup(itemGroup);
+        if (recipeRemainder != null)  build.setRecipeRemainder(recipeRemainder);
         return build;
     }
 
