@@ -6,13 +6,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.itemgroup.ItemGroup;
 import net.minecraft.util.Rarity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 
 public class PffItemSettings {
     private int maxCount = 64;
     private ItemGroup itemGroup;
+    private PffItemGroup pffItemGroup;
     private int MaxDamage;
     private boolean MaxDamage_boolen = false;
     private Item recipeRemainder;
@@ -20,7 +20,6 @@ public class PffItemSettings {
     private boolean fireproof_boolen = false;
     private int maxDamageIfAbsent;
     private boolean Fireproof_boolen = false;
-       static List<Item> buildedItems = new ArrayList<>();
 
     public PffItemSettings maxCount(int maxcount)
     {
@@ -61,12 +60,12 @@ public class PffItemSettings {
         this.itemGroup = itemGroup;
         return this;
     }
-    public PffItemSettings group(PffItemGroup itemGroup)
-    {
-        for(Item item : buildedItems) {
-            itemGroup.appendItems(item);
-        }
 
+    public PffItemSettings group(PffItemGroup itemGroup) {
+        /* for(Item item : buildedItems) {
+            itemGroup.appendItems(item);
+        } */
+        this.pffItemGroup = itemGroup;
         return this;
     }
 
@@ -118,4 +117,13 @@ public class PffItemSettings {
         return build;
     }
 
+    // ----
+
+    public Optional<ItemGroup> getItemGroup() {
+        return Optional.ofNullable(itemGroup);
+    }
+
+    public Optional<PffItemGroup> getPffItemGroup() {
+        return Optional.ofNullable(pffItemGroup);
+    }
 }
