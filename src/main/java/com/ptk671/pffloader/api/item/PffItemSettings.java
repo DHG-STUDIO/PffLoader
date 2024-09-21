@@ -1,9 +1,13 @@
 package com.ptk671.pffloader.api.item;
 
+import com.ptk671.pffloader.api.itemgroup.PffItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.itemgroup.ItemGroup;
 import net.minecraft.util.Rarity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class PffItemSettings {
@@ -16,13 +20,13 @@ public class PffItemSettings {
     private boolean fireproof_boolen = false;
     private int maxDamageIfAbsent;
     private boolean Fireproof_boolen = false;
+       static List<Item> buildedItems = new ArrayList<>();
 
     public PffItemSettings maxCount(int maxcount)
     {
         this.maxCount = maxcount;
         return this;
     }
-
     //>=1.14x
     public PffItemSettings maxDamageIfAbsent(int maxDamageIfAbsent2)
     {
@@ -55,6 +59,14 @@ public class PffItemSettings {
     public PffItemSettings group(ItemGroup itemGroup)
     {
         this.itemGroup = itemGroup;
+        return this;
+    }
+    public PffItemSettings group(PffItemGroup itemGroup)
+    {
+        for(Item item : buildedItems) {
+            itemGroup.appendItems(item);
+        }
+
         return this;
     }
 
@@ -105,4 +117,5 @@ public class PffItemSettings {
 
         return build;
     }
+
 }

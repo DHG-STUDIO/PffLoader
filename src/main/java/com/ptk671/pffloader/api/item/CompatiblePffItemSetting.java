@@ -4,10 +4,12 @@ import com.ptk671.pffloader.api.block.PffBlock;
 
 public class CompatiblePffItemSetting {
 
-    public static PffItem of(PffItemSettings pffItemSettings)
+    public static   PffItem of(PffItemSettings pffItemSettings)
     {
         PffItem build = pffItemSettings.build();
-        return  build;
+          PffItemSettings.buildedItems.add(build);
+
+        return build;
     }
 
     public static PffBlockItem of(PffBlock pffBlock, PffItemSettings pffItemSettings)
