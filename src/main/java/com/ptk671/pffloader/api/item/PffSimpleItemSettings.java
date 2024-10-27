@@ -1,7 +1,6 @@
 package com.ptk671.pffloader.api.item;
 
 import net.minecraft.item.ItemGroup;
-import net.minecraft.registry.RegistryKey;
 
 public class PffSimpleItemSettings {
 
@@ -12,7 +11,7 @@ public class PffSimpleItemSettings {
         return pffItem;
     }
 
-    public static PffItem Setting  (int maxCount, RegistryKey<ItemGroup> itemGroup) {
+    public static PffItem Setting  (int maxCount, ItemGroup itemGroup) {
         PffItem pffItem = new PffItem(new PffItemSettings()
                 .maxCount(maxCount)
                 .group(itemGroup));
