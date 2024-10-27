@@ -67,19 +67,6 @@ public class PffItemGroup {
 
     public Item getIcon ()
     {
-        Item item;
-        item = Items.AIR;
-        if(iconSupplier != null) item = iconSupplier.getItem();
-        return item;
-    }
-
-    public Item getTabItem (int i)
-    {
-        return stacks2.get(i).getItem();
-    }
-
-    public Item getIcon ()
-    {
          Item item2;
          item2 = BlockItem.fromBlock(Blocks.AIR);
         if(iconSupplier != null) item2 = iconSupplier.getItem();
