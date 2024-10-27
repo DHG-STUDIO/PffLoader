@@ -4,9 +4,9 @@ import com.ptk671.pffloader.api.block.PffBlock;
 
 public class CompatiblePffItemSetting {
 
-
     public static PffItem of(PffItemSettings pffItemSettings)
     {
+
         PffItem build = new PffItem(pffItemSettings);
         return build;
     }
