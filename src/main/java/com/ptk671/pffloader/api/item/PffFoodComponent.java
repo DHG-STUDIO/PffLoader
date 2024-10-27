@@ -1,8 +1,7 @@
 package com.ptk671.pffloader.api.item;
 
-import com.mojang.datafixers.util.Pair;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.item.FoodComponent;
+import net.minecraft.util.Pair;
 
 import java.util.List;
 
@@ -48,50 +47,35 @@ public class PffFoodComponent {
         return this;
     }
 
-
-    public FoodComponent build() {
-        FoodComponent.Builder foodComponent = new FoodComponent.Builder();
-        if(hunger_boolean)foodComponent.hunger(hunger); foodComponent.hunger(hunger);
-        if(saturationModifier_boolean) foodComponent.saturationModifier(saturationModifier);
-        if(snack) foodComponent.snack();
-        if(statusEffects != null ) foodComponent.saturationModifier(saturationModifier);
-        if(meat) foodComponent.meat();
-        if(alwaysEdible) foodComponent.alwaysEdible();
-        return foodComponent.build();
-    }
-
-    public int getHunger()
-    {
+    public int getHunger() {
         return hunger;
     }
 
-    public boolean getHungerBoolen()
-    {
+    public boolean getHungerBoolen() {
         return hunger_boolean;
     }
 
-    public float getSaturationModifier ()
-    {
+    public float getSaturationModifier () {
         return saturationModifier;
     }
 
-    public boolean getSaturationModifier_boolean ()
-    {
+    public boolean getSaturationModifier_boolean () {
         return saturationModifier_boolean;
     }
 
-    public boolean getMeat ()
-    {
+    public boolean getMeat () {
         return meat;
     }
 
-    public boolean getHunger_boolean ()
-    {
+    public boolean getHunger_boolean () {
         return alwaysEdible;
     }
 
-    public boolean getSnack ()
-    {
+    public boolean getSnack () {
         return snack;
+    }
+
+    public List<Pair<StatusEffectInstance, Float>> getStatusEffects (){
+        return statusEffects;
     }
 }

@@ -1,15 +1,19 @@
 package com.ptk671.pffloader.api.item;
 
 import com.ptk671.pffloader.api.itemgroup.PffItemAddCreativeTab_1_20;
+import com.ptk671.pffloader.api.itemgroup.PffItemGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Rarity;
 
+import java.util.Optional;
+
 public class PffItemSettings {
     private FabricItemSettings settings = new FabricItemSettings();
-
+    private PffItemGroup pffItemGroup;
+    private ItemGroup itemGroup;
 
 
     public PffItemSettings maxCount(int maxcount)
@@ -77,6 +81,14 @@ public class PffItemSettings {
         return settings;
     }
 
+    // ----
 
+    public Optional<ItemGroup> getItemGroup() {
+        return Optional.ofNullable(itemGroup);
+    }
+
+    public Optional<PffItemGroup> getPffItemGroup() {
+        return Optional.ofNullable(pffItemGroup);
+    }
 
 }

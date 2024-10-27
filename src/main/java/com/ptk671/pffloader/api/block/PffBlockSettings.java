@@ -82,7 +82,6 @@ public class PffBlockSettings {
     }
 
     public PffBlockSettings requiresTool() {
-        settings.requiresTool();
         return this;
     }
 

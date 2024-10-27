@@ -1,10 +1,11 @@
 package com.ptk671.pffloader.api.itemgroup;
 
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -55,7 +56,6 @@ public class PffItemGroup {
         if(iconSupplier != null) itemGroup.icon(() -> new ItemStack(iconSupplier.getItem()));
         if(stacks2 != null) itemGroup.appendItems(stacks -> {stacks.addAll(stacks2);});
         return itemGroup.build();
-
     }
 
     public Item getTabItem (int i)
@@ -65,10 +65,10 @@ public class PffItemGroup {
 
     public Item getIcon ()
     {
-        Item item;
-        item = Items.AIR;
-        if(iconSupplier != null) item = iconSupplier.getItem();
-        return item;
+         Item item2;
+         item2 = BlockItem.fromBlock(Blocks.AIR);
+        if(iconSupplier != null) item2 = iconSupplier.getItem();
+        return item2;
     }
 
 }
