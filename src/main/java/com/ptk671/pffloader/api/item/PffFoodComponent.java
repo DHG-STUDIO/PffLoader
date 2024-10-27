@@ -1,8 +1,8 @@
 package com.ptk671.pffloader.api.item;
 
-import com.mojang.datafixers.util.Pair;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.FoodComponent;
+import net.minecraft.util.Pair;
 
 import java.util.List;
 
