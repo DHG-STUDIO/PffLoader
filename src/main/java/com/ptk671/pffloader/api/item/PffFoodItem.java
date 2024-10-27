@@ -6,7 +6,7 @@ import net.minecraft.util.CommonI18n;
 
 public class PffFoodItem  extends FoodItem implements IPffItem {
 
-    private PffItemSettings settings = null;
+    private PffItemSettings settings;
 
     public PffFoodItem(int i, float f, boolean bl) {
         super(i, f, bl);

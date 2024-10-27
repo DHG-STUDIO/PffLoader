@@ -109,7 +109,7 @@ public class PffItemSettings {
         int Hunger = pffFoodComponent.getHunger();
         float SaturationModifier = pffFoodComponent.getSaturationModifier();
         boolean Meat = pffFoodComponent.getMeat();
-        PffFoodItem build = new PffFoodItem(Hunger,SaturationModifier,Meat);
+        PffFoodItem build = new PffFoodItem(this,Hunger,SaturationModifier,Meat);
         build.setMaxCount(maxCount);
         if (itemGroup != null) build.setItemGroup(itemGroup);
         if (recipeRemainder != null)  build.setRecipeRemainder(recipeRemainder);
