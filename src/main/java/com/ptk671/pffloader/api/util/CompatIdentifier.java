@@ -52,8 +52,8 @@ public class CompatIdentifier {
         return path;
     }
 
-    public net.minecraft.util.Identifier toMinecraft() {
-        return new net.minecraft.util.Identifier(namespace, path);
+    public Identifier toMinecraft() {
+        return Identifier.of(namespace, path);
     }
 
     @Override
