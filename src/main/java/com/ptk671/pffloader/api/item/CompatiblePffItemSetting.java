@@ -7,7 +7,7 @@ public class CompatiblePffItemSetting {
     public static PffItem of(PffItemSettings pffItemSettings)
     {
         PffItem build = pffItemSettings.build();
-        return  build;
+        return build;
     }
 
     public static PffBlockItem of(PffBlock pffBlock, PffItemSettings pffItemSettings)

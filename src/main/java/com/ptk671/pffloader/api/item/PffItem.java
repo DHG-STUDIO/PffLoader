@@ -4,10 +4,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.CommonI18n;
 
-public class PffItem extends Item {
+public class PffItem extends Item implements IPffItem {
+
+    private PffItemSettings settings;
+
     @Deprecated
     public PffItem(PffItemSettings settings) {
-
+        this.settings = settings;
     }
 
     @Override
@@ -16,5 +19,11 @@ public class PffItem extends Item {
     }
 
     public PffItem(){
+        settings = null;
+    }
+
+    @Override
+    public PffItemSettings getSettings() {
+        return settings;
     }
 }

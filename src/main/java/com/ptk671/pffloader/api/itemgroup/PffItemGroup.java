@@ -1,7 +1,7 @@
 package com.ptk671.pffloader.api.itemgroup;
 
+import com.ptk671.pffloader.api.util.CompatIdentifier;
 import net.legacyfabric.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.legacyfabric.fabric.api.util.Identifier;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -22,8 +22,8 @@ public class PffItemGroup {
         this.identifier = identifier;
     }
 
-    public static PffItemGroup create(Identifier identifier) {
-        return new PffItemGroup(identifier);
+    public static PffItemGroup create(CompatIdentifier identifier) {
+        return new PffItemGroup(identifier.toLegacyFabric());
     }
 
     public PffItemGroup Icon(ItemStack iconSupplier) {

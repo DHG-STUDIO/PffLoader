@@ -1,14 +1,18 @@
 package com.ptk671.pffloader.api.item;
 
+import com.ptk671.pffloader.api.itemgroup.PffItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.itemgroup.ItemGroup;
 import net.minecraft.util.Rarity;
 
+import java.util.Optional;
+
 
 public class PffItemSettings {
     private int maxCount = 64;
     private ItemGroup itemGroup;
+    private PffItemGroup pffItemGroup;
     private int MaxDamage;
     private boolean MaxDamage_boolen = false;
     private Item recipeRemainder;
@@ -22,7 +26,6 @@ public class PffItemSettings {
         this.maxCount = maxcount;
         return this;
     }
-
     //>=1.14x
     public PffItemSettings maxDamageIfAbsent(int maxDamageIfAbsent2)
     {
@@ -58,6 +61,14 @@ public class PffItemSettings {
         return this;
     }
 
+    public PffItemSettings group(PffItemGroup itemGroup) {
+        /* for(Item item : buildedItems) {
+            itemGroup.appendItems(item);
+        } */
+        this.pffItemGroup = itemGroup;
+        return this;
+    }
+
     //>=1.14x
     public PffItemSettings rarity(Rarity rarity)
     {
@@ -79,10 +90,10 @@ public class PffItemSettings {
     }
 
     public PffItem build() {
-    PffItem build = new PffItem();
-       build.setMaxCount(maxCount);
-         if (itemGroup != null) build.setItemGroup(itemGroup);
-         if (recipeRemainder != null)  build.setRecipeRemainder(recipeRemainder);
+        PffItem build = new PffItem(this);
+        build.setMaxCount(maxCount);
+        if (itemGroup != null) build.setItemGroup(itemGroup);
+        if (recipeRemainder != null)  build.setRecipeRemainder(recipeRemainder);
         return build;
     }
 
@@ -98,11 +109,21 @@ public class PffItemSettings {
         int Hunger = pffFoodComponent.getHunger();
         float SaturationModifier = pffFoodComponent.getSaturationModifier();
         boolean Meat = pffFoodComponent.getMeat();
-        PffFoodItem build = new PffFoodItem(Hunger,SaturationModifier,Meat);
+        PffFoodItem build = new PffFoodItem(this,Hunger,SaturationModifier,Meat);
         build.setMaxCount(maxCount);
         if (itemGroup != null) build.setItemGroup(itemGroup);
         if (recipeRemainder != null)  build.setRecipeRemainder(recipeRemainder);
 
         return build;
+    }
+
+    // ----
+
+    public Optional<ItemGroup> getItemGroup() {
+        return Optional.ofNullable(itemGroup);
+    }
+
+    public Optional<PffItemGroup> getPffItemGroup() {
+        return Optional.ofNullable(pffItemGroup);
     }
 }
