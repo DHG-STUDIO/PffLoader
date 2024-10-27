@@ -21,6 +21,4 @@ public class CompatiblePffItemSetting {
         PffFoodItem build = pffItemSettings.buildFood(pffFoodComponent);
         return build;
     }
-
-
 }
