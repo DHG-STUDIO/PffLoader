@@ -1,10 +1,12 @@
 package com.ptk671.pffloader.api.itemgroup;
 
+import com.ptk671.pffloader.api.util.CompatIdentifier;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -21,8 +23,8 @@ public class PffItemGroup {
         this.identifier = identifier;
     }
 
-    public static PffItemGroup create(Identifier identifier) {
-        return new PffItemGroup(identifier);
+    public static PffItemGroup create(CompatIdentifier identifier) {
+        return new PffItemGroup(identifier.toMinecraft());
     }
 
     public PffItemGroup Icon(ItemStack iconSupplier) {
@@ -65,10 +67,10 @@ public class PffItemGroup {
 
     public Item getIcon ()
     {
-        Item item;
-        item = Items.AIR;
-        if(iconSupplier != null) item = iconSupplier.getItem();
-        return item;
+         Item item2;
+         item2 = BlockItem.fromBlock(Blocks.AIR);
+        if(iconSupplier != null) item2 = iconSupplier.getItem();
+        return item2;
     }
 
 }
