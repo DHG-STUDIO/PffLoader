@@ -23,12 +23,13 @@ loom {
 }
 
 dependencies {
-	minecraft "com.mojang:minecraft:1.12.2"
-	mappings "net.legacyfabric:yarn:1.12.2+build.541:v2"
-	modImplementation "net.fabricmc:fabric-loader:0.16.0"
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings(legacy.yarn(project.minecraft_version, project.yarn_build))
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Legacy-Fabric API
-	modImplementation "net.legacyfabric.legacy-fabric-api:legacy-fabric-api:1.10.2+1.12.2"
+	// Fabric API provides hooks for events, item registration, and more. As most mods will need this, it's included by default.
+	// If you know for a fact you don't, it's not required and can be safely removed.
+	modImplementation "net.legacyfabric.legacy-fabric-api:legacy-fabric-api:${project.fabric_version}"
 
 	// You can retrieve a specific api module using this notation.
 	// modImplementation(legacy.apiModule("legacy-fabric-item-groups-v1", project.fabric_version))
