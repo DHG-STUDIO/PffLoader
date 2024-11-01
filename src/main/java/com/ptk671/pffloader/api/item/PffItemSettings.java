@@ -1,10 +1,12 @@
 package com.ptk671.pffloader.api.item;
 
 import com.ptk671.pffloader.api.itemgroup.PffItemGroup;
+import com.ptk671.pffloader.api.util.CompatIdentifier;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
 import java.util.Optional;
@@ -22,7 +24,14 @@ public class PffItemSettings {
     private boolean fireproof_boolen = false;
     private int maxDamageIfAbsent;
     private PffFoodComponent pffFoodComponent = null;
-    private  FoodComponent foodComponent;
+    private FoodComponent foodComponent;
+    private final Identifier id;
+    private final CompatIdentifier compatIdentifier;
+
+    public PffItemSettings(CompatIdentifier compatIdentifier){
+        this.compatIdentifier = compatIdentifier;
+        this.id = compatIdentifier.toMinecraft();
+    }
 
     public PffItemSettings maxCount(int maxcount)
     {
@@ -84,11 +93,11 @@ public class PffItemSettings {
 
     public FabricItemSettings build() {
         settings.maxCount(maxCount);
-        if (maxDamageIfAbsent_boolen) settings.maxDamageIfAbsent(maxDamageIfAbsent);
+       // if (maxDamageIfAbsent_boolen) settings.maxDamageIfAbsent(maxDamageIfAbsent);
         if (MaxDamage_boolen) settings.maxDamage(MaxDamage);
         if (recipeRemainder != null) settings.recipeRemainder(recipeRemainder);
         if (rarity != null) settings.rarity(rarity);
-        if (itemGroup != null) settings.group(itemGroup);
+       // if (itemGroup != null) PffItemAddCreativeTab_1_20.registry(,itemGroup);
         if (foodComponent != null) settings.food(foodComponent);
         if (fireproof_boolen) settings.fireproof();
         return settings;
@@ -102,6 +111,14 @@ public class PffItemSettings {
 
     public Optional<PffItemGroup> getPffItemGroup() {
         return Optional.ofNullable(pffItemGroup);
+    }
+
+    public Optional<CompatIdentifier> getCompatIdentifier() {
+        return Optional.ofNullable(compatIdentifier);
+    }
+
+    public Optional<Identifier> getIdentifier() {
+        return Optional.ofNullable(id);
     }
 
 }
