@@ -2,7 +2,6 @@ package com.ptk671.pffloader.api.block;
 
 import com.ptk671.pffloader.api.util.CompatIdentifier;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
@@ -42,7 +41,7 @@ public class PffBlockSettings {
     }
 
     public PffBlockSettings copyOf(PffBlock pffBlock) {
-        AbstractBlock.Settings.copy(pffBlock);
+        FabricBlockSettings.copy(pffBlock);
         return this;
     }
 
@@ -172,22 +171,22 @@ public class PffBlockSettings {
     }
 */
     public FabricBlockSettings build() {
-        if (air) settings.air();
+       // if (air) settings.air();
         if (dropLike != null) settings.dropsLike(this.dropLike);
         if (breakInstantly) settings.breakInstantly();
         if (dropsNothing) settings.dropsNothing();
         if (dynamicBounds) settings.dynamicBounds();
         //if (noBlockBreakParticles) settings.noBlockBreakParticles();
-        if (requiresTool) settings.requiresTool();
+      //  if (requiresTool) settings.requiresTool();
         if (noCollision) settings.noCollision();
-        if (nonOpaque) settings.nonOpaque();
+       // if (nonOpaque) settings.nonOpaque();
         if (hardness != 0) settings.strength(hardness,resistance);
         if (ticksRandomly) settings.ticksRandomly();
         if (sounds != null) settings.sounds(sounds);
-        if (luminance != null) settings.luminance(luminance);
-        if (jumpVelocityMultiplie != 0) settings.jumpVelocityMultiplier(jumpVelocityMultiplie);
+      //  if (luminance != null) settings.luminance(luminance);
+      //  if (jumpVelocityMultiplie != 0) settings.jumpVelocityMultiplier(jumpVelocityMultiplie);
         if (slipperiness != 0) settings.slipperiness(slipperiness);
-        if (velocityMultiplier != 0) settings.velocityMultiplier(velocityMultiplier);
+    //    if (velocityMultiplier != 0) settings.velocityMultiplier(velocityMultiplier);
         return settings;
     }
     public Optional<CompatIdentifier> getCompatIdentifier() {
