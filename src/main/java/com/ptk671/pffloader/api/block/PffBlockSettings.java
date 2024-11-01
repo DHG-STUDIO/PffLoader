@@ -171,13 +171,13 @@ public class PffBlockSettings {
         return this;
     }
 */
-    public AbstractBlock.Settings build() {
+    public FabricBlockSettings build() {
         if (air) settings.air();
         if (dropLike != null) settings.dropsLike(this.dropLike);
         if (breakInstantly) settings.breakInstantly();
         if (dropsNothing) settings.dropsNothing();
         if (dynamicBounds) settings.dynamicBounds();
-        if (noBlockBreakParticles) settings.noBlockBreakParticles();
+        //if (noBlockBreakParticles) settings.noBlockBreakParticles();
         if (requiresTool) settings.requiresTool();
         if (noCollision) settings.noCollision();
         if (nonOpaque) settings.nonOpaque();
