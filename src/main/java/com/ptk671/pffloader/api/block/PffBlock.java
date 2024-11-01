@@ -11,13 +11,18 @@ import net.minecraft.world.World;
 
 public class PffBlock extends  Block{
     private String translationKey;
-
+    private PffBlockSettings settings;
     public PffBlock(Material material, MaterialColor materialColor) {
         super(material, materialColor);
     }
 
     public PffBlock(Material material) {
         super(material);
+    }
+
+    public PffBlock(Material material,PffBlockSettings pffBlockSettings) {
+        super(material);
+        settings = pffBlockSettings;
     }
 
     @Override
@@ -93,7 +98,12 @@ public class PffBlock extends  Block{
     }
 
     public String getTranslationKey() {
-        return  this.translationKey;
+        return this.translationKey;
+    }
+
+
+    public PffBlockSettings getBlockSettings() {
+        return settings;
     }
 }
 

@@ -2,6 +2,7 @@ package com.ptk671.pffloader.api.itemgroup;
 
 import com.ptk671.pffloader.api.util.CompatIdentifier;
 import net.legacyfabric.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.legacyfabric.fabric.api.util.Identifier;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -13,17 +14,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PffItemGroup {
-    public net.legacyfabric.fabric.api.util.Identifier identifier;
+    private Identifier identifier;
+    private CompatIdentifier compatIdentifier;
     private ItemStack iconSupplier = null;
     private List<ItemStack> stacks2 = new ArrayList<>();
     private Text DisplayName;
+    private ItemGroup settings;
 
-    public PffItemGroup(net.legacyfabric.fabric.api.util.Identifier identifier) {
-        this.identifier = identifier;
+    public PffItemGroup(CompatIdentifier identifier) {
+        this.identifier = identifier.toLegacyFabric();
+    }
+
+    public PffItemGroup(){
+        settings = null;
     }
 
     public static PffItemGroup create(CompatIdentifier identifier) {
-        return new PffItemGroup(identifier.toLegacyFabric());
+        return new PffItemGroup(identifier);
     }
 
     public PffItemGroup Icon(ItemStack iconSupplier) {
@@ -71,4 +78,11 @@ public class PffItemGroup {
         return item2;
     }
 
+    public CompatIdentifier getCompatid(){
+        return compatIdentifier;
+    }
+
+    public Identifier getIdentifier(){
+        return identifier;
+    }
 }
