@@ -14,17 +14,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PffItemGroup {
-    public Identifier identifier;
+    private Identifier identifier;
+    private CompatIdentifier compatIdentifier;
     private ItemStack iconSupplier = null;
     private List<ItemStack> stacks2 = new ArrayList<>();
     private Text DisplayName;
+    private ItemGroup settings;
 
-    public PffItemGroup(Identifier identifier) {
-        this.identifier = identifier;
+    public PffItemGroup(CompatIdentifier identifier) {
+        this.identifier = identifier.toMinecraft();
     }
 
     public static PffItemGroup create(CompatIdentifier identifier) {
-        return new PffItemGroup(identifier.toMinecraft());
+        return new PffItemGroup(identifier);
+    }
+
+    public PffItemGroup(){
+        settings = null;
     }
 
     public PffItemGroup Icon(ItemStack iconSupplier) {
@@ -59,7 +65,6 @@ public class PffItemGroup {
         if(DisplayName == null) itemGroup.displayName(PffText.translatable("itemGroup."+identifier.getNamespace()+"."+identifier.getPath()));
         if(DisplayName != null) itemGroup.displayName(DisplayName);
         return itemGroup.build();
-
     }
 
     public Item getTabItem (int i)
@@ -75,4 +80,11 @@ public class PffItemGroup {
         return item;
     }
 
+    public CompatIdentifier getCompatid(){
+        return compatIdentifier;
+    }
+
+    public Identifier getIdentifier(){
+        return identifier;
+    }
 }
