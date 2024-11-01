@@ -171,7 +171,7 @@ public class PffBlockSettings {
         return this;
     }
 */
-    public AbstractBlock.Settings build() {
+    public FabricBlockSettings build() {
         if (air) settings.air();
         if (dropLike != null) settings.dropsLike(this.dropLike);
         if (breakInstantly) settings.breakInstantly();
