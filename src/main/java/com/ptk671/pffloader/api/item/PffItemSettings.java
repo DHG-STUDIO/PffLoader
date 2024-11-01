@@ -1,6 +1,8 @@
 package com.ptk671.pffloader.api.item;
 
 import com.ptk671.pffloader.api.itemgroup.PffItemGroup;
+import com.ptk671.pffloader.api.util.CompatIdentifier;
+import net.legacyfabric.fabric.api.util.Identifier;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.itemgroup.ItemGroup;
@@ -15,70 +17,67 @@ public class PffItemSettings {
     private PffItemGroup pffItemGroup;
     private int MaxDamage;
     private boolean MaxDamage_boolen = false;
+    private boolean maxDamageIfAbsent_boolen = false;
     private Item recipeRemainder;
     private Rarity rarity;
     private boolean fireproof_boolen = false;
     private int maxDamageIfAbsent;
     private boolean Fireproof_boolen = false;
+    private final Identifier id;
+    private final CompatIdentifier compatIdentifier;
+    public PffItemSettings(CompatIdentifier compatIdentifier){
+        this.compatIdentifier = compatIdentifier;
+        this.id = compatIdentifier.toLegacyFabric();
+    }
 
     public PffItemSettings maxCount(int maxcount)
     {
         this.maxCount = maxcount;
         return this;
     }
-    //>=1.14x
-    public PffItemSettings maxDamageIfAbsent(int maxDamageIfAbsent2)
+
+    public PffItemSettings maxDamageIfAbsent(int maxDamageIfAbsent)
     {
-        maxDamageIfAbsent = maxDamageIfAbsent2;
+        this.maxDamageIfAbsent_boolen = true;
+        this.maxDamageIfAbsent = maxDamageIfAbsent;
         return this;
     }
 
-    //>=1.14x
     public PffItemSettings maxDamage(int maxDamage)
     {
         this.MaxDamage_boolen = true;
-        this.MaxDamage = maxDamage;
-        return this;
+    this.MaxDamage = maxDamage;
+    return this;
     }
-
     public PffItemSettings recipeRemainder(Item recipeRemainder)
     {
         this.recipeRemainder = recipeRemainder;
         return this;
     }
 
-    //>=1.19.3
-    public PffItemSettings group(PffItem pffItem, ItemGroup itemGroup)
-    {
-        this.itemGroup = itemGroup;
-        return this;
-    }
 
-    //=>1.19.2
     public PffItemSettings group(ItemGroup itemGroup)
     {
-        this.itemGroup = itemGroup;
-        return this;
+            this.itemGroup = itemGroup;
+            return this;
     }
 
-    public PffItemSettings group(PffItemGroup itemGroup) {
-        /* for(Item item : buildedItems) {
-            itemGroup.appendItems(item);
-        } */
+
+    public PffItemSettings group(PffItemGroup itemGroup)
+    {
         this.pffItemGroup = itemGroup;
         return this;
     }
 
-    //>=1.14x
     public PffItemSettings rarity(Rarity rarity)
     {
-
         this.rarity = rarity;
         return this;
     }
 
     public PffItemSettings fireproof()
     {
+        //>=1.16
         this.fireproof_boolen = true;
         return this;
     }
@@ -126,4 +125,13 @@ public class PffItemSettings {
     public Optional<PffItemGroup> getPffItemGroup() {
         return Optional.ofNullable(pffItemGroup);
     }
+
+    public Optional<CompatIdentifier> getCompatIdentifier() {
+        return Optional.ofNullable(compatIdentifier);
+    }
+
+    public Optional<Identifier> getIdentifier() {
+        return Optional.ofNullable(id);
+    }
+
 }
