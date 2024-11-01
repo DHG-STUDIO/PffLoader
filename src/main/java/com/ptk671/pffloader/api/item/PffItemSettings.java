@@ -1,9 +1,11 @@
 package com.ptk671.pffloader.api.item;
 
 import com.ptk671.pffloader.api.itemgroup.PffItemGroup;
+import com.ptk671.pffloader.api.util.CompatIdentifier;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
 import java.util.Optional;
@@ -22,6 +24,13 @@ public class PffItemSettings {
     private int maxDamageIfAbsent;
     private PffFoodComponent pffFoodComponent = null;
     private FoodComponent foodComponent;
+    private final Identifier id;
+    private final CompatIdentifier compatIdentifier;
+
+    public PffItemSettings(CompatIdentifier compatIdentifier){
+        this.compatIdentifier = compatIdentifier;
+        this.id = compatIdentifier.toMinecraft();
+    }
 
     public PffItemSettings maxCount(int maxcount)
     {
@@ -101,6 +110,14 @@ public class PffItemSettings {
 
     public Optional<PffItemGroup> getPffItemGroup() {
         return Optional.ofNullable(pffItemGroup);
+    }
+
+    public Optional<CompatIdentifier> getCompatIdentifier() {
+        return Optional.ofNullable(compatIdentifier);
+    }
+
+    public Optional<Identifier> getIdentifier() {
+        return Optional.ofNullable(id);
     }
 
 }
